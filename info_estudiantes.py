@@ -1,4 +1,8 @@
+lista = [
+    "Juan Fernando Pastor Huaman",
+    "Gustavo Jose Mejia Riofrio",
+]
+
+
 def nombres_estudiantes():
-    print("Juan Fernando Pástor, Gustavo Mejia Riofrio")
-    
-nombres_estudiantes()
+    return ", ".join(lista)

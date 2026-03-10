@@ -4,6 +4,9 @@ import info_estudiantes
 import info_proyecto
 
 def main():
+    print(f"Estudiantes: {', '.join(info_estudiantes.lista)}")
+    print(f"Proyecto: {info_proyecto.tema}")
+    print(f"Descripcion: {info_proyecto.descripcion}")
     print("--- INICIANDO SISTEMA DE GESTIÓN DE DESCARGAS ---")
     
     # 1. Instanciación del Servidor 
@@ -22,8 +25,5 @@ def main():
     # 4. Reporte Final
     srv.generar_reporte_estado()
     
-    print(f"Estudiantes: {info_estudiantes.lista}")
-    print(f"Proyecto: {info_proyecto.tema}")
-
 if __name__ == "__main__":
     main()
