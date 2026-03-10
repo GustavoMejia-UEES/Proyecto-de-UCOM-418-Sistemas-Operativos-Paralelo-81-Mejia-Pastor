@@ -1,59 +1,83 @@
-
 # Registro de Avances - Proyecto Sistemas Operativos
 
 ## Avance 4: Servidor de Descargas
 
-**Estudiante:** Juan Fernando Pastor Huaman
+### Contexto del proyecto
 
-### Análisis Técnico:
+Servidor de descargas: plataforma que gestiona multiples solicitudes desde un servidor con capacidad limitada, administrando conexiones activas y el trafico total generado.
 
-* **Recursos Compartidos**:
-* **Básico (`int` / `float`)**: `conexiones_activas` y `bytes_transferidos_totales`. El hilo accede a estos para validar cupo antes de iniciar y reportar el peso del archivo al finalizar
-* **Complejo (`list`)**: `historial_trafico`. Estructura donde el hilo añade el log de éxito de la descarga.
+## 1) Recurso compartido identificado
 
+### Tipo basico
 
+- `conexiones_activas` (`int`): contador global de cupos ocupados en el servidor.
+- `bytes_transferidos_totales` (`float`): acumulador global del trafico de descargas.
 
+Por que son compartidos:
+Son variables unicas del objeto `Servidor` que todos los hilos `UsuarioDescarga` leen y modifican durante su ejecucion.
 
-* **Entidad**: Clase `UsuarioDescarga`. Hereda de `threading.Thread` y es la encargada de consumir los recursos del servidor de forma asíncrona.
+### Tipo complejo
 
+- `historial_trafico` (`list`): bitacora compartida donde cada hilo registra el resultado de su solicitud.
 
-* 
-**Sección Crítica**: Definida como el bloque de código que solicita el permiso, modifica el contador de conexiones y registra la salida en el historial. El riesgo de no protegerla con el **Mutex** del servidor es la inconsistencia de datos y la sobreventa de capacidad del sistema.
+Por que es compartido:
+Todos los hilos escriben sobre la misma estructura para mantener un unico historial del sistema.
 
+## 2) Entidades que acceden al recurso compartido
 
+- Clase `Servidor` (`servidor.py`)
+  Atributos principales: `nombre_servidor`, `capacidad_maxima`, `ancho_banda_total`, `conexiones_activas`, `bytes_transferidos_totales`, `historial_trafico`, `mutex`.
+  Rol: centralizar el estado comun y proveer el reporte final.
 
-### Intervención Individual:
+- Clase `UsuarioDescarga` (`usuario.py`)
+  Atributos principales: `id_solicitud`, `servidor`, `tamano_archivo`.
+  Rol: representar cada solicitud concurrente y competir por el acceso al recurso compartido del servidor.
 
-* 
-**Desarrollo**: Implementación de la clase `UsuarioDescarga` y la lógica de ejecución en el método `run()`.
+## 3) Reflexion sobre la seccion critica (sin codigo)
 
+La seccion critica ocurre cuando un hilo:
 
-* 
-**Sincronización**: Aplicación de los métodos `acquire()` y `release()` sobre el Mutex de la infraestructura para garantizar la exclusión mutua.
+- valida si hay cupo disponible,
+- incrementa o decrementa `conexiones_activas`,
+- actualiza `bytes_transferidos_totales`,
+- escribe en `historial_trafico`.
 
+Riesgo de no protegerla:
+Sin exclusion mutua puede ocurrir condicion de carrera. El resultado seria inconsistente: aceptar mas usuarios que la capacidad real, perder actualizaciones del trafico total o registrar logs incompletos/incoherentes.
 
-* **Integración**: Actualización y configuración del archivo `main.py` para instanciar los objetos y ejecutar la simulación de concurrencia.
-* 
-**Versionamiento**: Creación y gestión de la rama `feature-clase-usuario` y unión final a la rama principal mediante merge.
+## 4) Desarrollo implementado
 
-**Estudiante:** Gustavo Jose Mejia Riofrio
+- `Servidor`: constructor con estado compartido + `threading.Lock` + metodo `generar_reporte_estado()`.
+- `UsuarioDescarga`: hereda de `threading.Thread`; simula solicitudes y actualiza recursos compartidos usando el mutex.
+- `main.py`: instancia un objeto `Servidor`, crea varios objetos `UsuarioDescarga`, ejecuta `start()` y `join()`, y genera reporte final.
 
-### Análisis Técnico:
+## 5) Distribucion de actividades
 
-- **Recursos Compartidos**:
-- **Básico (`int` / `float`)**: `conexiones_activas` y `bytes_transferidos_totales`. Son compartidos porque el servidor controla el límite de usuarios y el tráfico en tiempo real.
+### Estudiante: Juan Fernando Pastor Huaman
 
-- **Complejo (`list`)**: `historial_trafico`. Es donde se registran las metadata de cada descarga al finalizar.
+- Implementacion de `UsuarioDescarga` y su flujo concurrente en `run()`.
+- Integracion de ejecucion concurrente en `main.py`.
+- Documentacion tecnica de seccion critica y riesgos.
 
-- **Entidad**: Clase `Servidor`. Administra la capacidad y el Mutex.
+### Estudiante: Gustavo Jose Mejia Riofrio
 
-- **Sección Crítica**: Ocurre al validar el cupo disponible y actualizar los contadores. Sin protección (Mutex), el servidor podría aceptar más descargas de su capacidad real, causando una **condición de carrera** y el colapso del sistema.
+- Implementacion de `Servidor` y atributos de control compartido.
+- Definicion de sincronizacion con `threading.Lock`.
+- Construccion del reporte de estado y bitacora de trafico.
 
-### Intervención Individual:
+## 6) Versionamiento (checklist para la entrega)
 
-- **Arquitectura**: Implementación de la clase `Servidor` con atributos de control (`capacidad_maxima`, `ancho_banda`).
+- Versionado local y remoto por ramas individuales.
+- Merge de ramas de trabajo hacia `main`.
+- Obtencion del SHA del ultimo commit.
 
-- **Sincronización**: Definición del **Mutex** (`threading.Lock`) para asegurar la exclusión mutua en los recursos compartidos.
+Comandos utiles:
 
-- **Auditoría**: Creación del método `generar_reporte_estado()` para monitorear la carga y logs del sistema.
-- **Versionamiento**: Creación de la rama `gustavo-infraestructura` y estructuración inicial del repositorio.
+```bash
+git checkout main
+git pull origin main
+git branch
+git log --oneline -n 5
+git rev-parse HEAD
+git push origin main
+```
