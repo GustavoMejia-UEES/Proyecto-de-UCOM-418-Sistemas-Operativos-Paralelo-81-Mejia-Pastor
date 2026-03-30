@@ -1,0 +1,48 @@
+[2026-03-29 23:29:21.500] [MUTEX] [WAIT] [Hilo_1] -> Nodo -: Esperando Mutex. Requiere: 18.49MB, Tipo: IMAGEN
+[2026-03-29 23:29:21.501] [INFO] [CONNECT] [Hilo_1] -> Nodo 1: Asignado al Nodo 1. Ancho de banda restante: 81.51MB
+[2026-03-29 23:29:21.647] [MUTEX] [WAIT] [Hilo_2] -> Nodo -: Esperando Mutex. Requiere: 41.58MB, Tipo: VIDEO
+[2026-03-29 23:29:21.647] [INFO] [CONNECT] [Hilo_2] -> Nodo 2: Asignado al Nodo 2. Ancho de banda restante: 39.93MB
+[2026-03-29 23:29:21.906] [MUTEX] [WAIT] [Hilo_3] -> Nodo -: Esperando Mutex. Requiere: 22.68MB, Tipo: IMAGEN
+[2026-03-29 23:29:21.906] [INFO] [CONNECT] [Hilo_3] -> Nodo 3: Asignado al Nodo 3. Ancho de banda restante: 17.25MB
+[2026-03-29 23:29:23.113] [MUTEX] [WAIT] [Hilo_3] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-29 23:29:23.114] [INFO] [DISCONNECT] [Hilo_3] -> Nodo 3: Descargó 27.30MB. Nodo 3 liberado. Ancho restante: 39.93MB
+[2026-03-29 23:29:23.130] [MUTEX] [WAIT] [Hilo_4] -> Nodo -: Esperando Mutex. Requiere: 41.55MB, Tipo: VIDEO
+[2026-03-29 23:29:23.130] [WARN] [REJECT] [Hilo_4] -> Nodo -: Rechazado: Sin ancho de banda. Conexiones activas: 2/3
+[2026-03-29 23:29:23.409] [MUTEX] [WAIT] [Hilo_5] -> Nodo -: Esperando Mutex. Requiere: 56.91MB, Tipo: VIDEO
+[2026-03-29 23:29:23.409] [WARN] [REJECT] [Hilo_5] -> Nodo -: Rechazado: Sin ancho de banda. Conexiones activas: 2/3
+[2026-03-29 23:29:23.637] [MUTEX] [WAIT] [Hilo_6] -> Nodo -: Esperando Mutex. Requiere: 55.61MB, Tipo: VIDEO
+[2026-03-29 23:29:23.637] [WARN] [REJECT] [Hilo_6] -> Nodo -: Rechazado: Sin ancho de banda. Conexiones activas: 2/3
+[2026-03-29 23:29:23.783] [MUTEX] [WAIT] [Hilo_1] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-29 23:29:23.783] [INFO] [DISCONNECT] [Hilo_1] -> Nodo 1: Descargó 42.15MB. Nodo 1 liberado. Ancho restante: 58.42MB
+[2026-03-29 23:29:24.069] [MUTEX] [WAIT] [Hilo_5] -> Nodo -: Esperando Mutex. Requiere: 56.91MB, Tipo: VIDEO
+[2026-03-29 23:29:24.069] [INFO] [CONNECT] [Hilo_5] -> Nodo 1: Asignado al Nodo 1. Ancho de banda restante: 1.51MB
+[2026-03-29 23:29:24.083] [MUTEX] [WAIT] [Hilo_4] -> Nodo -: Esperando Mutex. Requiere: 41.55MB, Tipo: VIDEO
+[2026-03-29 23:29:24.083] [WARN] [REJECT] [Hilo_4] -> Nodo -: Rechazado: Sin ancho de banda. Conexiones activas: 2/3
+[2026-03-29 23:29:24.344] [MUTEX] [WAIT] [Hilo_6] -> Nodo -: Esperando Mutex. Requiere: 55.61MB, Tipo: VIDEO
+[2026-03-29 23:29:24.344] [WARN] [REJECT] [Hilo_6] -> Nodo -: Rechazado: Sin ancho de banda. Conexiones activas: 2/3
+[2026-03-29 23:29:24.599] [MUTEX] [WAIT] [Hilo_2] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-29 23:29:24.599] [INFO] [DISCONNECT] [Hilo_2] -> Nodo 2: Descargó 122.62MB. Nodo 2 liberado. Ancho restante: 43.09MB
+[2026-03-29 23:29:24.758] [MUTEX] [WAIT] [Hilo_7] -> Nodo -: Esperando Mutex. Requiere: 8.14MB, Tipo: TEXTO
+[2026-03-29 23:29:24.758] [INFO] [CONNECT] [Hilo_7] -> Nodo 2: Asignado al Nodo 2. Ancho de banda restante: 34.95MB
+[2026-03-29 23:29:24.864] [MUTEX] [WAIT] [Hilo_8] -> Nodo -: Esperando Mutex. Requiere: 20.23MB, Tipo: IMAGEN
+[2026-03-29 23:29:24.864] [INFO] [CONNECT] [Hilo_8] -> Nodo 3: Asignado al Nodo 3. Ancho de banda restante: 14.72MB
+[2026-03-29 23:29:25.107] [MUTEX] [WAIT] [Hilo_9] -> Nodo -: Esperando Mutex. Requiere: 42.17MB, Tipo: VIDEO
+[2026-03-29 23:29:25.108] [WARN] [REJECT] [Hilo_9] -> Nodo -: Rechazado: Sin puertos libres. Conexiones activas: 3/3
+[2026-03-29 23:29:25.223] [MUTEX] [WAIT] [Hilo_4] -> Nodo -: Esperando Mutex. Requiere: 41.55MB, Tipo: VIDEO
+[2026-03-29 23:29:25.223] [WARN] [REJECT] [Hilo_4] -> Nodo -: Rechazado: Sin puertos libres. Conexiones activas: 3/3
+[2026-03-29 23:29:25.391] [MUTEX] [WAIT] [Hilo_6] -> Nodo -: Esperando Mutex. Requiere: 55.61MB, Tipo: VIDEO
+[2026-03-29 23:29:25.391] [WARN] [REJECT] [Hilo_6] -> Nodo -: Rechazado: Sin puertos libres. Conexiones activas: 3/3
+[2026-03-29 23:29:26.056] [MUTEX] [WAIT] [Hilo_9] -> Nodo -: Esperando Mutex. Requiere: 42.17MB, Tipo: VIDEO
+[2026-03-29 23:29:26.057] [WARN] [REJECT] [Hilo_9] -> Nodo -: Rechazado: Sin puertos libres. Conexiones activas: 3/3
+[2026-03-29 23:29:26.085] [MUTEX] [WAIT] [Hilo_7] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-29 23:29:26.085] [INFO] [DISCONNECT] [Hilo_7] -> Nodo 2: Descargó 10.77MB. Nodo 2 liberado. Ancho restante: 22.86MB
+[2026-03-29 23:29:26.118] [MUTEX] [WAIT] [Hilo_5] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-29 23:29:26.119] [INFO] [DISCONNECT] [Hilo_5] -> Nodo 1: Descargó 116.43MB. Nodo 1 liberado. Ancho restante: 79.77MB
+[2026-03-29 23:29:26.256] [MUTEX] [WAIT] [Hilo_10] -> Nodo -: Esperando Mutex. Requiere: 59.65MB, Tipo: VIDEO
+[2026-03-29 23:29:26.256] [INFO] [CONNECT] [Hilo_10] -> Nodo 1: Asignado al Nodo 1. Ancho de banda restante: 20.12MB
+[2026-03-29 23:29:27.078] [MUTEX] [WAIT] [Hilo_9] -> Nodo -: Esperando Mutex. Requiere: 42.17MB, Tipo: VIDEO
+[2026-03-29 23:29:27.078] [WARN] [REJECT] [Hilo_9] -> Nodo -: Rechazado: Sin ancho de banda. Conexiones activas: 2/3
+[2026-03-29 23:29:27.095] [MUTEX] [WAIT] [Hilo_8] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-29 23:29:27.096] [INFO] [DISCONNECT] [Hilo_8] -> Nodo 3: Descargó 45.05MB. Nodo 3 liberado. Ancho restante: 40.35MB
+[2026-03-29 23:29:30.487] [MUTEX] [WAIT] [Hilo_10] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-29 23:29:30.487] [INFO] [DISCONNECT] [Hilo_10] -> Nodo 1: Descargó 252.22MB. Nodo 1 liberado. Ancho restante: 100.00MB
