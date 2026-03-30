@@ -10,6 +10,8 @@ class UsuarioDescarga(threading.Thread):
         self.servidor = servidor
         self.tamano_archivo = round(random.uniform(5.0, 50.0), 2)
         self.max_intentos = 3
+        self.name = f"Usuario {id_solicitud}"
+        self.puerto_asignado = None
 
     def run(self):
         intentos = 0
@@ -20,6 +22,7 @@ class UsuarioDescarga(threading.Thread):
         while intentos < self.max_intentos and not conectado:
             if self.servidor.solicitar_conexion(self.id_solicitud):
                 conectado = True
+                self.puerto_asignado = puerto
             else:
                 intentos += 1
                 print(f"[!] Servidor lleno. Solicitud {self.id_solicitud} en espera... (Intento {intentos}/{self.max_intentos})")
@@ -30,6 +33,7 @@ class UsuarioDescarga(threading.Thread):
             
             time.sleep(random.uniform(1, 3)) 
 
+            # Registrar salida (usa mutex.acquire() internamente)
             self.servidor.registrar_salida(self.id_solicitud, self.tamano_archivo)
             print(f"[-] Solicitud {self.id_solicitud} COMPLETADA. Cupo liberado.")
         else:

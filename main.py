@@ -3,6 +3,8 @@ import usuario
 import bitacora
 import info_estudiantes
 import info_proyecto
+import time
+import random
 
 def ejecutar_simulacion():
     # Limpiamos el log manualmente al iniciar
