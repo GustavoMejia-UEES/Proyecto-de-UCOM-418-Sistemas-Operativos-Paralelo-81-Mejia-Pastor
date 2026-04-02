@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://ch6mkm33kgddt"]
+
+[ext_resource type="Script" uid="uid://duq2j4pw36nt1" path="res://scripts/World.gd" id="1_fngvn"]
+[ext_resource type="PackedScene" uid="uid://cwegqvimtlxxu" path="res://scenes/Player/PC.tscn" id="2_hkgio"]
+[ext_resource type="PackedScene" uid="uid://chpad00001" path="res://scenes/World/ChargingPad.tscn" id="3_kurpr"]
+[ext_resource type="PackedScene" uid="uid://bex5ifhoj1x1i" path="res://scenes/Player/Server.tscn" id="4_p47ta"]
+[ext_resource type="PackedScene" uid="uid://cfjsg1xt32fwx" path="res://scenes/HUD.tscn" id="5_ictkp"]
+[ext_resource type="PackedScene" uid="uid://convbelt0001" path="res://scenes/World/ConveyorBelt.tscn" id="6_hkgio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqs1s"]
+size = Vector2(1024, 64)
+
+[node name="World" type="Node2D" unique_id=693201228]
+y_sort_enabled = true
+script = ExtResource("1_fngvn")
+
+[node name="FondoAdmin" type="ColorRect" parent="." unique_id=1642525428]
+offset_right = 1024.0
+offset_bottom = 1024.0
+color = Color(0.2086803, 1.5191269e-07, 2.4065375e-08, 1)
+
+[node name="FondoHacker" type="ColorRect" parent="." unique_id=104371179]
+offset_top = 1024.0
+offset_right = 1024.0
+offset_bottom = 2048.0
+color = Color(0.0025168592, 0, 0.13994196, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=504787831]
+position = Vector2(0, 988)
+
+[node name="ColorRectVisual" type="ColorRect" parent="StaticBody2D" unique_id=512461294]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2124803541]
+position = Vector2(512, 32)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="PCs_Hackers" type="Node2D" parent="." unique_id=1834032129]
+y_sort_enabled = true
+position = Vector2(2, -113)
+
+[node name="Pc1" parent="PCs_Hackers" unique_id=448044649 instance=ExtResource("2_hkgio")]
+position = Vector2(294, 1687)
+
+[node name="Pc2" parent="PCs_Hackers" unique_id=1916479949 instance=ExtResource("2_hkgio")]
+position = Vector2(287, 1429)
+id_nodo = "2"
+
+[node name="Pc3" parent="PCs_Hackers" unique_id=1292293788 instance=ExtResource("2_hkgio")]
+position = Vector2(511, 1580)
+id_nodo = "3"
+
+[node name="Pc4" parent="PCs_Hackers" unique_id=1278114382 instance=ExtResource("2_hkgio")]
+position = Vector2(714, 1436)
+id_nodo = "4"
+
+[node name="Pc5" parent="PCs_Hackers" unique_id=584383357 instance=ExtResource("2_hkgio")]
+position = Vector2(722, 1700)
+id_nodo = "5"
+
+[node name="ChargingStations" type="Node2D" parent="PCs_Hackers" unique_id=1065449663]
+y_sort_enabled = true
+position = Vector2(-6, 49)
+
+[node name="ChargingPad1" parent="PCs_Hackers/ChargingStations" unique_id=484612787 instance=ExtResource("3_kurpr")]
+position = Vector2(79, 1371)
+
+[node name="ChargingPad2" parent="PCs_Hackers/ChargingStations" unique_id=1507986730 instance=ExtResource("3_kurpr")]
+position = Vector2(82, 1757)
+
+[node name="ChargingPad3" parent="PCs_Hackers/ChargingStations" unique_id=707857322 instance=ExtResource("3_kurpr")]
+position = Vector2(953, 1384)
+
+[node name="ChargingPad4" parent="PCs_Hackers/ChargingStations" unique_id=350817190 instance=ExtResource("3_kurpr")]
+position = Vector2(953, 1793)
+
+[node name="Servers_Admin" type="Node2D" parent="." unique_id=1085420080]
+y_sort_enabled = true
+position = Vector2(2, -113)
+
+[node name="Server1" parent="Servers_Admin" unique_id=1146154091 instance=ExtResource("4_p47ta")]
+position = Vector2(181, 295)
+
+[node name="Server2" parent="Servers_Admin" unique_id=665158679 instance=ExtResource("4_p47ta")]
+position = Vector2(267, 294)
+id_nodo = "2"
+
+[node name="Server3" parent="Servers_Admin" unique_id=1320128961 instance=ExtResource("4_p47ta")]
+position = Vector2(355, 295)
+id_nodo = "3"
+
+[node name="Server4" parent="Servers_Admin" unique_id=154910489 instance=ExtResource("4_p47ta")]
+position = Vector2(447, 298)
+id_nodo = "4"
+
+[node name="Server5" parent="Servers_Admin" unique_id=1919593636 instance=ExtResource("4_p47ta")]
+position = Vector2(535, 298)
+id_nodo = "5"
+
+[node name="HUD" parent="." unique_id=542895342 instance=ExtResource("5_ictkp")]
+
+[node name="ConveyorBelt" parent="." unique_id=225479493 instance=ExtResource("6_hkgio")]
+offset_left = 0.0
+offset_top = 1900.0
+offset_right = 1024.0
+offset_bottom = 2028.0

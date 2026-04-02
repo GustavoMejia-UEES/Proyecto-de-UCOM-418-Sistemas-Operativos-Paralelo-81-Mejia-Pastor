@@ -21,17 +21,13 @@ class Servidor:
         self.ancho_banda_consumido = 0.0
         
         # MECANISMO DE CONTROL (Sincronización)
+        self.semaforo_cupos = threading.Semaphore(capacidad_maxima)
         self.mutex = threading.Lock()
         
         # SISTEMA DE BITÁCORA (Thread-safe con logging nativo)
         self._configurar_bitacora()
 
     def _configurar_bitacora(self):
-        """
-        Configura el sistema de logging para registrar en bitacora.log
-        usando la librería nativa 'logging' de Python (thread-safe).
-        Formato profesional con niveles: [INFO], [WARN], [ERROR], [MUTEX]
-        """
         logger = logging.getLogger('servidor_descarga')
         logger.setLevel(logging.INFO)
         
@@ -52,33 +48,22 @@ class Servidor:
         self.logger = logger
 
     def registrar_evento(self, usuario_id, nivel, tipo_evento, nodo_asignado="-", descripcion=""):
-        """
-        Registra un evento estructurado en la bitácora.
-        
-        Args:
-            usuario_id: ID del usuario/hilo
-            nivel: [INFO], [WARN], [ERROR], [MUTEX]
-            tipo_evento: CONNECT, DISCONNECT, REJECT, WAIT
-            nodo_asignado: Número de puerto/nodo o "-"
-            descripcion: Descripción adicional
-        """
         mensaje = f"[{nivel}] [{tipo_evento}] [Hilo_{usuario_id}] -> Nodo {nodo_asignado}: {descripcion}"
         self.logger.info(mensaje)
 
     def solicitar_conexion(self, usuario_id, tipo_archivo="TEXTO", ancho_banda_requerido=10):
-        """
-        Intenta adquirir el Mutex para acceder a un puerto/nodo específico.
-        Usa mutex.acquire() de forma explícita.
-        Retorna (éxito: bool, puerto_asignado: int o None, ancho_banda_asignado: float)
-        
-        Args:
-            usuario_id: ID del usuario
-            tipo_archivo: TEXTO, IMAGEN o VIDEO
-            ancho_banda_requerido: Ancho de banda que necesita este usuario
-        """
         # ANTES del Mutex: registrar INTENTO
         self.registrar_evento(usuario_id, "MUTEX", "WAIT", "-", 
                             f"Esperando Mutex. Requiere: {ancho_banda_requerido}MB, Tipo: {tipo_archivo}")
+
+        # ====== ADQUIRIR SEMÁFORO DE CUPOS ======
+        self.registrar_evento(usuario_id, "MUTEX", "SEM_WAIT", "-", "Esperando cupo en semáforo")
+        cupo_obtenido = self.semaforo_cupos.acquire(timeout=2.0)
+        if not cupo_obtenido:
+            self.registrar_evento(usuario_id, "WARN", "SEM_TIMEOUT", "-", "No se obtuvo cupo en semáforo")
+            return (False, None, 0)
+
+        conexion_asignada = False
         
         # ====== ADQUIRIR MUTEX EXPLÍCITAMENTE =======
         self.mutex.acquire()
@@ -110,8 +95,9 @@ class Servidor:
                 # Registrar CONNECT exitoso
                 self.registrar_evento(usuario_id, "INFO", "CONNECT", puerto_libre,
                                     f"Asignado al Nodo {puerto_libre}. Ancho de banda restante: {ancho_banda_disponible - ancho_banda_requerido:.2f}MB")
+                conexion_asignada = True
                 
-                return (True, puerto_libre, ancho_banda_disponible / self.capacidad_maxima)
+                return (True, puerto_libre, ancho_banda_requerido)
             else:
                 # RECHAZO
                 razon = "Sin puertos libres" if puerto_libre is None else "Sin ancho de banda"
@@ -123,13 +109,14 @@ class Servidor:
         finally:
             # ====== LIBERAR MUTEX EXPLÍCITAMENTE =======
             self.mutex.release()
+            if not conexion_asignada:
+                # Si no hubo conexión real, devolvemos el cupo inmediatamente.
+                self.semaforo_cupos.release()
+                self.registrar_evento(usuario_id, "INFO", "SEM_RELEASE", "-", "Cupo liberado por conexión no asignada")
 
     def registrar_salida(self, usuario_id, bytes_descargados):
-        """
-        Libera la conexión y registra el evento de salida (DISCONNECT).
-        Usa mutex.acquire() de forma explícita.
-        """
         self.registrar_evento(usuario_id, "MUTEX", "WAIT", "-", "Esperando Mutex para liberar puerto")
+        liberar_cupo = False
         
         # ====== ADQUIRIR MUTEX EXPLÍCITAMENTE =======
         self.mutex.acquire()
@@ -152,6 +139,8 @@ class Servidor:
                     'puerto': puerto_liberado,
                     'bytes': bytes_descargados,
                     'tipo': asignacion['tipo_archivo'],
+                    'ancho_banda_asignado': ancho_banda_liberado,
+                    'duracion_s': (datetime.now() - asignacion['timestamp_inicio']).total_seconds(),
                     'timestamp': datetime.now()
                 })
                 
@@ -160,10 +149,15 @@ class Servidor:
                                     f"Descargó {bytes_descargados:.2f}MB. Nodo {puerto_liberado} liberado. Ancho restante: {self.ancho_banda_total - self.ancho_banda_consumido:.2f}MB")
                 
                 del self.asignaciones[usuario_id]
+                liberar_cupo = True
         
         finally:
             # ====== LIBERAR MUTEX EXPLÍCITAMENTE =======
             self.mutex.release()
+
+        if liberar_cupo:
+            self.semaforo_cupos.release()
+            self.registrar_evento(usuario_id, "INFO", "SEM_RELEASE", "-", "Cupo devuelto al semáforo")
 
     def generar_reporte_estado(self):
         print(f"\n{'='*70}")
@@ -180,7 +174,11 @@ class Servidor:
         
         print(f"\n--- HISTORIAL DE DESCARGAS ---")
         for descarga in self.historial_trafico:
-            print(f"  • Usuario {descarga['usuario']}: {descarga['bytes']:.2f}MB ({descarga['tipo']}) en Nodo {descarga['puerto']}")
+            print(
+                f"  • Usuario {descarga['usuario']}: {descarga['bytes']:.2f}MB ({descarga['tipo']}) "
+                f"en Nodo {descarga['puerto']} @ {descarga['ancho_banda_asignado']:.2f}MB/s "
+                f"durante {descarga['duracion_s']:.2f}s"
+            )
         
         print(f"\nDisponibilidad: {'ALTA' if self.conexiones_activas < self.capacidad_maxima else 'LLENO'}")
         print(f"✓ Bitácora guardada en: bitacora.log")

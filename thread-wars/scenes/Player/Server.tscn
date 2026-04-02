@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bex5ifhoj1x1i"]
+
+[ext_resource type="Script" uid="uid://rg05mi2fttxn" path="res://scripts/node_logic.gd" id="1_3lj25"]
+[ext_resource type="Texture2D" uid="uid://cant2svxd85na" path="res://assets/World/ServerAdmin1.png" id="1_r1sct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fioyg"]
+size = Vector2(50, 100)
+
+[node name="Server" type="Area2D" unique_id=1865071427]
+script = ExtResource("1_3lj25")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1456835422]
+texture = ExtResource("1_r1sct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427428880]
+position = Vector2(-5, 5)
+shape = SubResource("RectangleShape2D_fioyg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=23006832]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=529766516]
+position = Vector2(-5, 5)
+shape = SubResource("RectangleShape2D_fioyg")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1866145694]
+offset_left = -48.0
+offset_top = -77.0
+offset_right = 52.0
+offset_bottom = -67.0
+show_percentage = false
+
+[node name="IconoAtaque" type="Sprite2D" parent="." unique_id=249414892]
+position = Vector2(0, -105)

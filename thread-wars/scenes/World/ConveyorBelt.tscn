@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://convbelt0001"]
+
+[ext_resource type="Script" uid="uid://ckl1uja7wjn0w" path="res://scripts/ConveyorBelt.gd" id="1_cb"]
+[ext_resource type="Texture2D" uid="uid://b15c1ev4oriyn" path="res://assets/World/Conveyor.png" id="2_k7jxe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7jxe"]
+size = Vector2(1014, 48)
+
+[node name="ConveyorBelt" type="Area2D" unique_id=108134035]
+script = ExtResource("1_cb")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1054740365]
+offset_left = -512.0
+offset_top = -64.0
+offset_right = 512.0
+offset_bottom = 64.0
+texture = ExtResource("2_k7jxe")
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=699820401]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_k7jxe")

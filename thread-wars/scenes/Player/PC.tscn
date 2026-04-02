@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cwegqvimtlxxu"]
+
+[ext_resource type="Script" uid="uid://rg05mi2fttxn" path="res://scripts/node_logic.gd" id="1_fioyg"]
+[ext_resource type="Texture2D" uid="uid://b2a7boi0qj8k" path="res://assets/World/PCHacker1.png" id="1_p1a4w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1a4w"]
+size = Vector2(96, 90)
+
+[node name="Pc" type="Area2D" unique_id=1457688700]
+script = ExtResource("1_fioyg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=194536672]
+shape = SubResource("RectangleShape2D_p1a4w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1456835422]
+texture = ExtResource("1_p1a4w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=917026208]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1427428880]
+shape = SubResource("RectangleShape2D_p1a4w")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=253781993]
+offset_left = -48.0
+offset_top = -62.0
+offset_right = 52.0
+offset_bottom = -52.0
+show_percentage = false
+
+[node name="IconoAtaque" type="Sprite2D" parent="." unique_id=1124001383]
+position = Vector2(0, -105)

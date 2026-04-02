@@ -1,84 +1,64 @@
-=== INICIO DE NUEVA SIMULACIÓN ===
-[1773958666707] Usuario 1 INICIADO. Intentando conectar...
-[1773958666707] Hilo 1 EN ESPERA del candado (Entrada).
-[1773958666708] Hilo 1 ADQUIRIÓ el candado (Entrada).
-[1773958666707] Usuario 4 INICIADO. Intentando conectar...
-[1773958666707] Usuario 2 INICIADO. Intentando conectar...
-[1773958666708] Usuario 5 INICIADO. Intentando conectar...
-[1773958666708] Usuario 6 INICIADO. Intentando conectar...
-[1773958666708] Usuario 7 INICIADO. Intentando conectar...
-[1773958666707] Usuario 3 INICIADO. Intentando conectar...
-[1773958666709] Hilo 1 ACEPTADO. Activas: 1.
-[1773958666709] Hilo 4 EN ESPERA del candado (Entrada).
-[1773958666710] Hilo 2 EN ESPERA del candado (Entrada).
-[1773958666710] Hilo 5 EN ESPERA del candado (Entrada).
-[1773958666710] Hilo 6 EN ESPERA del candado (Entrada).
-[1773958666711] Hilo 7 EN ESPERA del candado (Entrada).
-[1773958666711] Hilo 3 EN ESPERA del candado (Entrada).
-[1773958666712] Hilo 1 LIBERÓ el candado (Entrada).
-[1773958666713] Hilo 4 ADQUIRIÓ el candado (Entrada).
-[1773958666716] Hilo 4 ACEPTADO. Activas: 2.
-[1773958666716] Hilo 4 LIBERÓ el candado (Entrada).
-[1773958666716] Hilo 2 ADQUIRIÓ el candado (Entrada).
-[1773958666717] Hilo 2 ACEPTADO. Activas: 3.
-[1773958666718] Hilo 2 LIBERÓ el candado (Entrada).
-[1773958666718] Hilo 5 ADQUIRIÓ el candado (Entrada).
-[1773958666719] Hilo 5 RECHAZADO. Servidor lleno.
-[1773958666719] Hilo 5 LIBERÓ el candado (Rechazo).
-[1773958666719] Hilo 6 ADQUIRIÓ el candado (Entrada).
-[1773958666720] Hilo 6 RECHAZADO. Servidor lleno.
-[1773958666720] Hilo 6 LIBERÓ el candado (Rechazo).
-[1773958666720] Hilo 7 ADQUIRIÓ el candado (Entrada).
-[1773958666721] Hilo 7 RECHAZADO. Servidor lleno.
-[1773958666722] Hilo 7 LIBERÓ el candado (Rechazo).
-[1773958666722] Hilo 3 ADQUIRIÓ el candado (Entrada).
-[1773958666723] Hilo 3 RECHAZADO. Servidor lleno.
-[1773958666724] Hilo 3 LIBERÓ el candado (Rechazo).
-[1773958667720] Hilo 5 EN ESPERA del candado (Entrada).
-[1773958667721] Hilo 5 ADQUIRIÓ el candado (Entrada).
-[1773958667721] Hilo 5 RECHAZADO. Servidor lleno.
-[1773958667722] Hilo 5 LIBERÓ el candado (Rechazo).
-[1773958667723] Hilo 6 EN ESPERA del candado (Entrada).
-[1773958667723] Hilo 6 ADQUIRIÓ el candado (Entrada).
-[1773958667724] Hilo 6 RECHAZADO. Servidor lleno.
-[1773958667724] Hilo 6 LIBERÓ el candado (Rechazo).
-[1773958667726] Hilo 7 EN ESPERA del candado (Entrada).
-[1773958667726] Hilo 7 ADQUIRIÓ el candado (Entrada).
-[1773958667726] Hilo 3 EN ESPERA del candado (Entrada).
-[1773958667727] Hilo 7 RECHAZADO. Servidor lleno.
-[1773958667728] Hilo 7 LIBERÓ el candado (Rechazo).
-[1773958667728] Hilo 3 ADQUIRIÓ el candado (Entrada).
-[1773958667729] Hilo 3 RECHAZADO. Servidor lleno.
-[1773958667730] Hilo 3 LIBERÓ el candado (Rechazo).
-[1773958668726] Hilo 6 EN ESPERA del candado (Entrada).
-[1773958668727] Hilo 6 ADQUIRIÓ el candado (Entrada).
-[1773958668728] Hilo 6 RECHAZADO. Servidor lleno.
-[1773958668728] Hilo 6 LIBERÓ el candado (Rechazo).
-[1773958668728] Hilo 5 EN ESPERA del candado (Entrada).
-[1773958668730] Hilo 5 ADQUIRIÓ el candado (Entrada).
-[1773958668729] Hilo 7 EN ESPERA del candado (Entrada).
-[1773958668730] Hilo 5 RECHAZADO. Servidor lleno.
-[1773958668732] Hilo 5 LIBERÓ el candado (Rechazo).
-[1773958668731] Hilo 3 EN ESPERA del candado (Entrada).
-[1773958668732] Hilo 7 ADQUIRIÓ el candado (Entrada).
-[1773958668734] Hilo 7 RECHAZADO. Servidor lleno.
-[1773958668734] Hilo 7 LIBERÓ el candado (Rechazo).
-[1773958668734] Hilo 3 ADQUIRIÓ el candado (Entrada).
-[1773958668736] Hilo 3 RECHAZADO. Servidor lleno.
-[1773958668736] Hilo 3 LIBERÓ el candado (Rechazo).
-[1773958668889] Hilo 2 EN ESPERA del candado (Salida).
-[1773958668890] Hilo 2 ADQUIRIÓ el candado (Salida).
-[1773958668891] Hilo 2 REGISTRÓ SALIDA. Tráfico sumado.
-[1773958668891] Hilo 2 LIBERÓ el candado (Fin).
-[1773958669297] Hilo 1 EN ESPERA del candado (Salida).
-[1773958669298] Hilo 1 ADQUIRIÓ el candado (Salida).
-[1773958669298] Hilo 1 REGISTRÓ SALIDA. Tráfico sumado.
-[1773958669299] Hilo 1 LIBERÓ el candado (Fin).
-[1773958669608] Hilo 4 EN ESPERA del candado (Salida).
-[1773958669609] Hilo 4 ADQUIRIÓ el candado (Salida).
-[1773958669609] Hilo 4 REGISTRÓ SALIDA. Tráfico sumado.
-[1773958669610] Hilo 4 LIBERÓ el candado (Fin).
-[1773958669731] Usuario 6 ABANDONÓ el sistema por Timeout.
-[1773958669735] Usuario 5 ABANDONÓ el sistema por Timeout.
-[1773958669738] Usuario 7 ABANDONÓ el sistema por Timeout.
-[1773958669739] Usuario 3 ABANDONÓ el sistema por Timeout.
+[2026-03-31 19:35:26.333] [MUTEX] [WAIT] [Hilo_1] -> Nodo -: Esperando Mutex. Requiere: 7.2MB, Tipo: TEXTO
+[2026-03-31 19:35:26.334] [MUTEX] [SEM_WAIT] [Hilo_1] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:26.334] [INFO] [CONNECT] [Hilo_1] -> Nodo 1: Asignado al Nodo 1. Ancho de banda restante: 92.80MB
+[2026-03-31 19:35:26.540] [MUTEX] [WAIT] [Hilo_2] -> Nodo -: Esperando Mutex. Requiere: 17.52MB, Tipo: IMAGEN
+[2026-03-31 19:35:26.540] [MUTEX] [SEM_WAIT] [Hilo_2] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:26.540] [INFO] [CONNECT] [Hilo_2] -> Nodo 2: Asignado al Nodo 2. Ancho de banda restante: 75.28MB
+[2026-03-31 19:35:26.759] [MUTEX] [WAIT] [Hilo_3] -> Nodo -: Esperando Mutex. Requiere: 6.14MB, Tipo: TEXTO
+[2026-03-31 19:35:26.759] [MUTEX] [SEM_WAIT] [Hilo_3] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:26.759] [INFO] [CONNECT] [Hilo_3] -> Nodo 3: Asignado al Nodo 3. Ancho de banda restante: 69.14MB
+[2026-03-31 19:35:26.939] [MUTEX] [WAIT] [Hilo_4] -> Nodo -: Esperando Mutex. Requiere: 44.49MB, Tipo: VIDEO
+[2026-03-31 19:35:26.939] [MUTEX] [SEM_WAIT] [Hilo_4] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:27.787] [MUTEX] [WAIT] [Hilo_3] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:27.787] [INFO] [DISCONNECT] [Hilo_3] -> Nodo 3: Descargó 6.29MB. Nodo 3 liberado. Ancho restante: 75.28MB
+[2026-03-31 19:35:27.787] [INFO] [SEM_RELEASE] [Hilo_3] -> Nodo -: Cupo devuelto al semáforo
+[2026-03-31 19:35:27.787] [INFO] [CONNECT] [Hilo_4] -> Nodo 3: Asignado al Nodo 3. Ancho de banda restante: 30.79MB
+[2026-03-31 19:35:28.017] [MUTEX] [WAIT] [Hilo_1] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:28.018] [INFO] [DISCONNECT] [Hilo_1] -> Nodo 1: Descargó 12.10MB. Nodo 1 liberado. Ancho restante: 37.99MB
+[2026-03-31 19:35:28.018] [INFO] [SEM_RELEASE] [Hilo_1] -> Nodo -: Cupo devuelto al semáforo
+[2026-03-31 19:35:28.139] [MUTEX] [WAIT] [Hilo_5] -> Nodo -: Esperando Mutex. Requiere: 18.15MB, Tipo: IMAGEN
+[2026-03-31 19:35:28.139] [MUTEX] [SEM_WAIT] [Hilo_5] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:28.139] [INFO] [CONNECT] [Hilo_5] -> Nodo 1: Asignado al Nodo 1. Ancho de banda restante: 19.84MB
+[2026-03-31 19:35:28.389] [MUTEX] [WAIT] [Hilo_6] -> Nodo -: Esperando Mutex. Requiere: 9.77MB, Tipo: TEXTO
+[2026-03-31 19:35:28.389] [MUTEX] [SEM_WAIT] [Hilo_6] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:28.456] [MUTEX] [WAIT] [Hilo_2] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:28.457] [INFO] [DISCONNECT] [Hilo_2] -> Nodo 2: Descargó 33.53MB. Nodo 2 liberado. Ancho restante: 37.36MB
+[2026-03-31 19:35:28.457] [INFO] [SEM_RELEASE] [Hilo_2] -> Nodo -: Cupo devuelto al semáforo
+[2026-03-31 19:35:28.457] [INFO] [CONNECT] [Hilo_6] -> Nodo 2: Asignado al Nodo 2. Ancho de banda restante: 27.59MB
+[2026-03-31 19:35:28.598] [MUTEX] [WAIT] [Hilo_7] -> Nodo -: Esperando Mutex. Requiere: 15.46MB, Tipo: IMAGEN
+[2026-03-31 19:35:28.598] [MUTEX] [SEM_WAIT] [Hilo_7] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:28.801] [MUTEX] [WAIT] [Hilo_8] -> Nodo -: Esperando Mutex. Requiere: 9.21MB, Tipo: TEXTO
+[2026-03-31 19:35:28.801] [MUTEX] [SEM_WAIT] [Hilo_8] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:29.394] [MUTEX] [WAIT] [Hilo_5] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:29.394] [INFO] [DISCONNECT] [Hilo_5] -> Nodo 1: Descargó 22.73MB. Nodo 1 liberado. Ancho restante: 45.74MB
+[2026-03-31 19:35:29.394] [INFO] [SEM_RELEASE] [Hilo_5] -> Nodo -: Cupo devuelto al semáforo
+[2026-03-31 19:35:29.394] [INFO] [CONNECT] [Hilo_7] -> Nodo 1: Asignado al Nodo 1. Ancho de banda restante: 30.28MB
+[2026-03-31 19:35:29.522] [MUTEX] [WAIT] [Hilo_6] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:29.522] [INFO] [DISCONNECT] [Hilo_6] -> Nodo 2: Descargó 10.34MB. Nodo 2 liberado. Ancho restante: 40.05MB
+[2026-03-31 19:35:29.522] [INFO] [SEM_RELEASE] [Hilo_6] -> Nodo -: Cupo devuelto al semáforo
+[2026-03-31 19:35:29.522] [INFO] [CONNECT] [Hilo_8] -> Nodo 2: Asignado al Nodo 2. Ancho de banda restante: 30.84MB
+[2026-03-31 19:35:30.072] [MUTEX] [WAIT] [Hilo_9] -> Nodo -: Esperando Mutex. Requiere: 50.1MB, Tipo: VIDEO
+[2026-03-31 19:35:30.072] [MUTEX] [SEM_WAIT] [Hilo_9] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:30.215] [MUTEX] [WAIT] [Hilo_10] -> Nodo -: Esperando Mutex. Requiere: 18.68MB, Tipo: IMAGEN
+[2026-03-31 19:35:30.215] [MUTEX] [SEM_WAIT] [Hilo_10] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:30.765] [MUTEX] [WAIT] [Hilo_8] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:30.765] [INFO] [DISCONNECT] [Hilo_8] -> Nodo 2: Descargó 11.42MB. Nodo 2 liberado. Ancho restante: 40.05MB
+[2026-03-31 19:35:30.765] [INFO] [SEM_RELEASE] [Hilo_8] -> Nodo -: Cupo devuelto al semáforo
+[2026-03-31 19:35:30.765] [WARN] [REJECT] [Hilo_9] -> Nodo -: Rechazado: Sin ancho de banda. Conexiones activas: 2/3
+[2026-03-31 19:35:30.765] [INFO] [SEM_RELEASE] [Hilo_9] -> Nodo -: Cupo liberado por conexión no asignada
+[2026-03-31 19:35:30.765] [INFO] [CONNECT] [Hilo_10] -> Nodo 2: Asignado al Nodo 2. Ancho de banda restante: 21.37MB
+[2026-03-31 19:35:31.091] [MUTEX] [WAIT] [Hilo_7] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:31.091] [INFO] [DISCONNECT] [Hilo_7] -> Nodo 1: Descargó 26.19MB. Nodo 1 liberado. Ancho restante: 36.83MB
+[2026-03-31 19:35:31.091] [INFO] [SEM_RELEASE] [Hilo_7] -> Nodo -: Cupo devuelto al semáforo
+[2026-03-31 19:35:31.481] [MUTEX] [WAIT] [Hilo_4] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:31.481] [INFO] [DISCONNECT] [Hilo_4] -> Nodo 3: Descargó 164.14MB. Nodo 3 liberado. Ancho restante: 81.32MB
+[2026-03-31 19:35:31.481] [INFO] [SEM_RELEASE] [Hilo_4] -> Nodo -: Cupo devuelto al semáforo
+[2026-03-31 19:35:31.987] [MUTEX] [WAIT] [Hilo_10] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:31.987] [INFO] [DISCONNECT] [Hilo_10] -> Nodo 2: Descargó 22.77MB. Nodo 2 liberado. Ancho restante: 100.00MB
+[2026-03-31 19:35:31.987] [INFO] [SEM_RELEASE] [Hilo_10] -> Nodo -: Cupo devuelto al semáforo
+[2026-03-31 19:35:32.259] [MUTEX] [WAIT] [Hilo_9] -> Nodo -: Esperando Mutex. Requiere: 50.1MB, Tipo: VIDEO
+[2026-03-31 19:35:32.259] [MUTEX] [SEM_WAIT] [Hilo_9] -> Nodo -: Esperando cupo en semáforo
+[2026-03-31 19:35:32.259] [INFO] [CONNECT] [Hilo_9] -> Nodo 1: Asignado al Nodo 1. Ancho de banda restante: 49.90MB
+[2026-03-31 19:35:37.424] [MUTEX] [WAIT] [Hilo_9] -> Nodo -: Esperando Mutex para liberar puerto
+[2026-03-31 19:35:37.424] [INFO] [DISCONNECT] [Hilo_9] -> Nodo 1: Descargó 258.57MB. Nodo 1 liberado. Ancho restante: 100.00MB
+[2026-03-31 19:35:37.424] [INFO] [SEM_RELEASE] [Hilo_9] -> Nodo -: Cupo devuelto al semáforo

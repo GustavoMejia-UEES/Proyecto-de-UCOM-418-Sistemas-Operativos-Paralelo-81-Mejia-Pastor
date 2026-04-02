@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://ch5wpuo213eui"]
+
+[ext_resource type="Script" uid="uid://65e6f65vurhj" path="res://scripts/Menu.gd" id="1_yqeox"]
+
+[sub_resource type="SystemFont" id="SystemFont_xdvgc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_upctu"]
+font = SubResource("SystemFont_xdvgc")
+font_size = 80
+
+[node name="Menu" type="Control" unique_id=113555965]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqeox")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=215747505]
+visibility_layer = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.14252627, 0.13077864, 1)
+
+[node name="Fase1_Nombre" type="Control" parent="." unique_id=2065045694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_Instruccion" type="Label" parent="Fase1_Nombre" unique_id=1517880125]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 280.0
+offset_right = 728.0
+offset_bottom = 390.0
+text = "Sala Privada"
+label_settings = SubResource("LabelSettings_upctu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputName" type="LineEdit" parent="Fase1_Nombre" unique_id=2021253443]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 430.0
+offset_right = 775.0
+offset_bottom = 491.0
+theme_override_font_sizes/font_size = 38
+placeholder_text = "Escribe tu nickname"
+alignment = 1
+
+[node name="InputCodigoSala" type="LineEdit" parent="Fase1_Nombre"]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 510.0
+offset_right = 695.0
+offset_bottom = 565.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Codigo (ABCD)"
+alignment = 1
+max_length = 4
+
+[node name="BtnModoCrear" type="Button" parent="Fase1_Nombre"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 585.0
+offset_right = 515.0
+offset_bottom = 645.0
+theme_override_font_sizes/font_size = 24
+text = "Crear Sala"
+
+[node name="BtnModoUnirse" type="Button" parent="Fase1_Nombre"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 585.0
+offset_right = 775.0
+offset_bottom = 645.0
+theme_override_font_sizes/font_size = 24
+text = "Unirse con Codigo"
+
+[node name="LabelModoSala" type="Label" parent="Fase1_Nombre"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 660.0
+offset_right = 775.0
+offset_bottom = 703.0
+theme_override_font_sizes/font_size = 26
+text = "Modo: Crear sala"
+horizontal_alignment = 1
+
+[node name="BtnContinuar" type="Button" parent="Fase1_Nombre" unique_id=537282417]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 730.0
+offset_right = 600.0
+offset_bottom = 787.0
+theme_override_font_sizes/font_size = 35
+text = "Continuar"
+
+[node name="Fase2_Equipo" type="Control" parent="." unique_id=481011686]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnHacker" type="Button" parent="Fase2_Equipo" unique_id=508818777]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 362.0
+offset_top = -62.0
+offset_right = -362.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "Ser Hacker"
+
+[node name="BtnAdmin" type="Button" parent="Fase2_Equipo" unique_id=1898859378]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 370.0
+offset_right = 662.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 35
+text = "Ser Admin"
+
+[node name="BtnSpectator" type="Button" parent="Fase2_Equipo" unique_id=2096182322]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 600.0
+offset_right = 712.0
+offset_bottom = 660.0
+theme_override_font_sizes/font_size = 35
+text = "Espectear"
+
+[node name="LabelStatus" type="Label" parent="Fase2_Equipo" unique_id=1968917521]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 981.0
+offset_right = 202.0
+offset_bottom = 1017.0
+theme_override_font_sizes/font_size = 26
+text = "Conectando..."
+
+[node name="Label" type="Label" parent="Fase2_Equipo" unique_id=1319854247]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 200.0
+offset_right = 762.0
+offset_bottom = 283.0
+theme_override_font_sizes/font_size = 60
+text = "Elige tu bando: "
+horizontal_alignment = 1
+
+[node name="BtnVolver" type="Button" parent="Fase2_Equipo" unique_id=996688175]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 722.0
+offset_right = 612.0
+offset_bottom = 772.0
+theme_override_font_sizes/font_size = 30
+text = "Volver"
+
+[node name="Fase3_Avatar" type="Control" parent="." unique_id=665744695]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelAvatar" type="Label" parent="Fase3_Avatar" unique_id=350121918]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 200.0
+offset_right = 777.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 60
+text = "Escoge tu avatar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnAvatarIzq" type="Button" parent="Fase3_Avatar" unique_id=563504028]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 384.0
+offset_right = 374.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[node name="AvatarPreview" type="TextureRect" parent="Fase3_Avatar" unique_id=442198964]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 0
+offset_left = 384.0
+offset_top = 384.0
+offset_right = 640.0
+offset_bottom = 640.0
+stretch_mode = 5
+
+[node name="BtnAvatarDer" type="Button" parent="Fase3_Avatar" unique_id=2031753996]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 384.0
+offset_right = 700.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 50
+text = ">"
+
+[node name="BtnVolver" type="Button" parent="Fase3_Avatar" unique_id=739988930]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 670.0
+offset_right = 516.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 30
+text = "Volver"
+
+[node name="BtnConectar" type="Button" parent="Fase3_Avatar" unique_id=81810457]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 670.0
+offset_right = 720.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 30
+text = "Entrar"
+
+[connection signal="pressed" from="Fase1_Nombre/BtnContinuar" to="." method="_on_btn_continuar_pressed"]
+[connection signal="pressed" from="Fase1_Nombre/BtnModoCrear" to="." method="_on_btn_modo_crear_pressed"]
+[connection signal="pressed" from="Fase1_Nombre/BtnModoUnirse" to="." method="_on_btn_modo_unirse_pressed"]
+[connection signal="pressed" from="Fase2_Equipo/BtnHacker" to="." method="_on_btn_hacker_pressed"]
+[connection signal="pressed" from="Fase2_Equipo/BtnAdmin" to="." method="_on_btn_admin_pressed"]
+[connection signal="pressed" from="Fase2_Equipo/BtnSpectator" to="." method="_on_btn_spectator_pressed"]
+[connection signal="pressed" from="Fase2_Equipo/BtnVolver" to="." method="_on_btn_volver_fase2_pressed"]
+[connection signal="pressed" from="Fase3_Avatar/BtnAvatarIzq" to="." method="_on_btn_avatar_izq_pressed"]
+[connection signal="pressed" from="Fase3_Avatar/BtnAvatarDer" to="." method="_on_btn_avatar_der_pressed"]
+[connection signal="pressed" from="Fase3_Avatar/BtnVolver" to="." method="_on_btn_volver_fase3_pressed"]
+[connection signal="pressed" from="Fase3_Avatar/BtnConectar" to="." method="_on_btn_conectar_pressed"]

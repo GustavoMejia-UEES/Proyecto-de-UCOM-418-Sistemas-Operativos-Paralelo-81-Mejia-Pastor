@@ -58,10 +58,11 @@ class UsuarioDescarga(threading.Thread):
                     time.sleep(random.uniform(0.5, 1.5))
 
         if conectado:
+            ancho_banda_efectivo = max(1.0, float(ancho_banda_asignado or self.ancho_banda_requerido))
             # Calcular tiempo de descarga usando fórmula: tamaño / ancho_banda
-            tiempo_descarga_segundos = self.tamano_archivo / self.ancho_banda_requerido
+            tiempo_descarga_segundos = self.tamano_archivo / ancho_banda_efectivo
             print(f"[+] {self.name} ACEPTADO. Tipo: {self.tipo_archivo}, "
-                  f"Descargando {self.tamano_archivo}MB @ {self.ancho_banda_requerido}MB/s "
+                f"Descargando {self.tamano_archivo}MB @ {ancho_banda_efectivo:.2f}MB/s "
                   f"(ETA: {tiempo_descarga_segundos:.2f}s)")
             
             # Dividir descarga en bloques
