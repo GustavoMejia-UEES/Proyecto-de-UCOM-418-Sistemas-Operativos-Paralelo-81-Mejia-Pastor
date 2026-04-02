@@ -27,6 +27,9 @@ func _resolver_url_websocket() -> String:
 		if custom_ws.strip_edges() != "":
 			return custom_ws.strip_edges()
 
+		# Fallback de produccion para el backend desplegado en Railway.
+		return "wss://thread-wars.up.railway.app"
+
 	# En local/editor usamos el backend levantado manualmente.
 	return "ws://localhost:8000"
 
