@@ -28,23 +28,51 @@ extends Control
 @onready var label_avatar: Label         = $Fase3_Avatar/LabelAvatar
 
 # Variables de memoria
-var _lista_avatares: Array[String] = []   
-var _indice_avatar: int = 0
-const RUTA_AVATARES := "res://assets/characters/"
 var _modo_sala: String = "crear"
+var _indice_avatar: int = 0
+
+# ==========================================
+# 🛡️ LISTA Y DICCIONARIO A PRUEBA DE WEB
+# ==========================================
+var _lista_avatares: Array[String] = [
+	"char_01", "char_02", "char_03", "char_04", "char_05",
+	"char_06", "char_07", "char_08", "char_09", "char_10",
+	"char_11", "char_12", "char_13", "char_14", "char_15",
+	"char_16", "char_17", "char_18", "char_19", "char_20"
+]
+
+var dic_personajes_menu = {
+	"char_01": preload("res://assets/characters/char_01.png"),
+	"char_02": preload("res://assets/characters/char_02.png"),
+	"char_03": preload("res://assets/characters/char_03.png"),
+	"char_04": preload("res://assets/characters/char_04.png"),
+	"char_05": preload("res://assets/characters/char_05.png"),
+	"char_06": preload("res://assets/characters/char_06.png"),
+	"char_07": preload("res://assets/characters/char_07.png"),
+	"char_08": preload("res://assets/characters/char_08.png"),
+	"char_09": preload("res://assets/characters/char_09.png"),
+	"char_10": preload("res://assets/characters/char_10.png"),
+	"char_11": preload("res://assets/characters/char_11.png"),
+	"char_12": preload("res://assets/characters/char_12.png"),
+	"char_13": preload("res://assets/characters/char_13.png"),
+	"char_14": preload("res://assets/characters/char_14.png"),
+	"char_15": preload("res://assets/characters/char_15.png"),
+	"char_16": preload("res://assets/characters/char_16.png"),
+	"char_17": preload("res://assets/characters/char_17.png"),
+	"char_18": preload("res://assets/characters/char_18.png"),
+	"char_19": preload("res://assets/characters/char_19.png"),
+	"char_20": preload("res://assets/characters/char_20.png")
+}
 
 func _ready():
-	# Al iniciar, solo mostramos la Fase 1
 	fase_1.show()
 	fase_2.hide()
 	fase_3.hide()
 	
-	_cargar_lista_avatares()
 	_mostrar_avatar_actual()
 	_actualizar_ui_modo_sala()
 
 func _process(_delta: float):
-	# Balanceo en tiempo real (solo importa si estamos en la fase 2)
 	if fase_2.visible and NetworkManager.estado_mundo.has("jugadores"):
 		var hackers: int = 0
 		var admins: int  = 0
@@ -65,12 +93,11 @@ func _process(_delta: float):
 func _on_btn_continuar_pressed(): 
 	var alias = input_nombre.text.strip_edges()
 	if alias == "":
-		alias = "Player_" + str(randi() % 1000) # Nombre por defecto si lo deja vacío
+		alias = "Player_" + str(randi() % 1000) 
 		
 	NetworkManager.mi_nombre = alias
 	NetworkManager.mi_rol_local = "PENDIENTE"
 	
-	# Ya no se elige bando aquí: el servidor lo asigna al iniciar partida.
 	fase_1.hide()
 	fase_3.show()
 
@@ -94,7 +121,6 @@ func _actualizar_ui_modo_sala():
 # BOTONES: FASE 2
 # ==========================================
 func _on_btn_volver_fase2_pressed():
-	# Regresar a la Fase 1
 	fase_2.hide()
 	fase_1.show()
 
@@ -111,7 +137,6 @@ func avanzar_a_fase_3(rol_elegido: String):
 # BOTONES: FASE 3
 # ==========================================
 func _on_btn_volver_fase3_pressed():
-	# Regresar a la Fase 1
 	fase_3.hide()
 	fase_1.show()
 
@@ -160,44 +185,29 @@ func _on_btn_conectar_pressed():
 		return
 
 	var ruta_mundo := "res://scenes/World/World.tscn"
-	if not ResourceLoader.exists(ruta_mundo):
-		ruta_mundo = "res://scenes/World/World.tscn" 
-		
 	get_tree().change_scene_to_file(ruta_mundo)
 
 # ==========================================
-# LÓGICA DE AVATARES
+# LÓGICA DE AVATARES (ACTUALIZADA)
 # ==========================================
-func _cargar_lista_avatares():
-	_lista_avatares.clear()
-	if DirAccess.dir_exists_absolute(RUTA_AVATARES):
-		var dir := DirAccess.open(RUTA_AVATARES)
-		dir.list_dir_begin()
-		var archivo: String = dir.get_next()
-		while archivo != "":
-			if archivo.ends_with(".png"):
-				_lista_avatares.append(archivo.get_basename())
-			archivo = dir.get_next()
-		dir.list_dir_end()
-		_lista_avatares.sort()
-
 func _mostrar_avatar_actual():
 	if _lista_avatares.is_empty():
 		if is_instance_valid(label_avatar): label_avatar.text = "Sin sprites"
 		return
 
 	var nombre_avatar: String = _lista_avatares[_indice_avatar]
-	var ruta_tex: String = RUTA_AVATARES + nombre_avatar + ".png"
 
 	if is_instance_valid(avatar_preview):
-		var tex := load(ruta_tex) as Texture2D
-		if tex:
-			var atlas = AtlasTexture.new()
-			atlas.atlas = tex
-			var frame_ancho = tex.get_width() / 3
-			var frame_alto = tex.get_height() / 4
-			atlas.region = Rect2(frame_ancho * 1, 0, frame_ancho, frame_alto)
-			avatar_preview.texture = atlas
+		# Cargamos directo desde nuestro diccionario blindado
+		if dic_personajes_menu.has(nombre_avatar):
+			var tex = dic_personajes_menu[nombre_avatar]
+			if tex:
+				var atlas = AtlasTexture.new()
+				atlas.atlas = tex
+				var frame_ancho = tex.get_width() / 3
+				var frame_alto = tex.get_height() / 4
+				atlas.region = Rect2(frame_ancho * 1, 0, frame_ancho, frame_alto)
+				avatar_preview.texture = atlas
 
 	if is_instance_valid(label_avatar):
 		label_avatar.text = "%s" % [nombre_avatar]
