@@ -3,3 +3,9 @@
   [headers.values]
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Embedder-Policy = "require-corp"
+
+# --- LO NUEVO PARA QUE DETECTE TU ARCHIVO ---
+[[redirects]]
+  from = "/*"
+  to = "/Thread Wars.html"
+  status = 200
