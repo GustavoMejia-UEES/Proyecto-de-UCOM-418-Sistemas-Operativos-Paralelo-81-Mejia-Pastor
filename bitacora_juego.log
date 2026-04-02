@@ -1,46 +1,8 @@
-[12:52:45] [INFO] [SALA] aaaaaaa creo la sala XRB0.
-[12:52:56] [INFO] [SALA] eeeeeeeeeeee se unio a la sala XRB0.
-[12:52:59] [INFO] [ROLES] Sala XRB0: 1 ADMIN(s), 1 HACKER(s).
-[12:52:59] [INFO] [INICIO] Partida iniciada por el anfitrion.
-[12:53:04] [INFO] [ATAQUE] eeeeeeeeeeee inicio ataque Nodo 5 (1/15).
-[12:53:04] [INFO] [CANCELAR] eeeeeeeeeeee libero Nodo 5.
-[12:53:07] [INFO] [ATAQUE] eeeeeeeeeeee inicio ataque Nodo 1 (1/10).
-[12:53:08] [INFO] [CANCELAR] eeeeeeeeeeee libero Nodo 1.
-[12:53:11] [INFO] [ATAQUE] eeeeeeeeeeee inicio ataque Nodo 3 (1/5).
-[12:53:11] [INFO] [CANCELAR] eeeeeeeeeeee libero Nodo 3.
-[12:53:17] [INFO] [PROGRESO] eeeeeeeeeeee avanzo Nodo 3: 2/5.
-[12:53:17] [INFO] [CANCELAR] eeeeeeeeeeee libero Nodo 3.
-[12:53:21] [INFO] [PROGRESO] eeeeeeeeeeee avanzo Nodo 3: 3/5.
-[12:53:21] [INFO] [CANCELAR] eeeeeeeeeeee libero Nodo 3.
-[12:53:26] [INFO] [PROGRESO] eeeeeeeeeeee avanzo Nodo 3: 4/5.
-[12:53:26] [INFO] [CANCELAR] eeeeeeeeeeee libero Nodo 3.
-[12:53:30] [INFO] [CORRUPCION] eeeeeeeeeeee corrompio el Nodo 3.
-[12:53:30] [WARN] [MUTEX_CALIENTE] Mutex en estado CALIENTE por 1+ nodos CORRUPTOS.
-[12:54:14] [INFO] [DESCONEXION] aaaaaaa salio de la sala XRB0.
-[12:54:15] [INFO] [CANCELAR] eeeeeeeeeeee libero Nodo 3.
-[12:54:22] [INFO] [DESCONEXION] eeeeeeeeeeee salio de la sala XRB0.
-[12:54:22] [INFO] [SALA] Sala XRB0 cerrada por falta de jugadores.
-[12:56:24] [INFO] [SALA] aaaaaaaaaaa creo la sala MP3M.
-[12:56:32] [INFO] [SALA] eeeeeeeeeeeeee se unio a la sala MP3M.
-[12:56:33] [INFO] [ROLES] Sala MP3M: 1 ADMIN(s), 1 HACKER(s).
-[12:56:33] [INFO] [INICIO] Partida iniciada por el anfitrion.
-[12:56:45] [INFO] [ATAQUE] aaaaaaaaaaa inicio ataque Nodo 1 (1/5).
-[12:56:45] [INFO] [CANCELAR] aaaaaaaaaaa libero Nodo 1.
-[12:56:49] [INFO] [ATAQUE] aaaaaaaaaaa inicio ataque Nodo 5 (1/10).
-[12:56:50] [INFO] [CANCELAR] aaaaaaaaaaa libero Nodo 5.
-[12:56:54] [INFO] [PROGRESO] aaaaaaaaaaa avanzo Nodo 1: 2/5.
-[12:56:54] [INFO] [CANCELAR] aaaaaaaaaaa libero Nodo 1.
-[12:56:57] [INFO] [PROGRESO] aaaaaaaaaaa avanzo Nodo 1: 3/5.
-[12:56:57] [INFO] [CANCELAR] aaaaaaaaaaa libero Nodo 1.
-[12:57:08] [INFO] [PROGRESO] aaaaaaaaaaa avanzo Nodo 1: 4/5.
-[12:57:08] [INFO] [CANCELAR] aaaaaaaaaaa libero Nodo 1.
-[12:57:12] [INFO] [ATAQUE] aaaaaaaaaaa inicio ataque Nodo 3 (1/15).
-[12:57:12] [INFO] [CANCELAR] aaaaaaaaaaa libero Nodo 3.
-[12:57:16] [INFO] [CORRUPCION] aaaaaaaaaaa corrompio el Nodo 1.
-[12:57:16] [WARN] [MUTEX_CALIENTE] Mutex en estado CALIENTE por 1+ nodos CORRUPTOS.
-[12:57:25] [INFO] [MUTEX_PURGA] Admin eeeeeeeeeeeeee purgo Nodo 1 con mutex 0.
-[12:57:25] [INFO] [MUTEX_FRIO] Mutex volvio a estado normal.
-[12:57:25] [INFO] [LIBERAR_MUTEX] Admin eeeeeeeeeeeeee libero mutex 0.
-[12:57:44] [INFO] [DESCONEXION] aaaaaaaaaaa salio de la sala MP3M.
-[12:57:44] [INFO] [DESCONEXION] eeeeeeeeeeeeee salio de la sala MP3M.
-[12:57:44] [INFO] [SALA] Sala MP3M cerrada por falta de jugadores.
+[13:35:07] [INFO] [SALA] AAAAAAAAAAAAAAAA creo la sala 5JQY.
+[13:35:17] [INFO] [SALA] eeeeeeeeeeeee se unio a la sala 5JQY.
+[13:35:18] [INFO] [ROLES] Sala 5JQY: 1 ADMIN(s), 1 HACKER(s).
+[13:35:18] [INFO] [INICIO] Partida iniciada por el anfitrion.
+[13:38:18] [INFO] [FIN] Partida finalizada: ADMINS GANAN.
+[13:54:05] [INFO] [DESCONEXION] eeeeeeeeeeeee salio de la sala 5JQY.
+[13:54:05] [INFO] [DESCONEXION] AAAAAAAAAAAAAAAA salio de la sala 5JQY.
+[13:54:05] [INFO] [SALA] Sala 5JQY cerrada por falta de jugadores.
