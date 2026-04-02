@@ -305,11 +305,11 @@ class ServidorJuego:
             if nodo.get("estado") == "CORRUPTO":
                 corruptos += 1
 
-        if corruptos >= 3 and not self._presion_mutex_activa:
-            self.mutex_calientes = [0, 1, 2]
+        if corruptos >= 1 and not self._presion_mutex_activa:
+            self.mutex_calientes = [int(x) for x in [0, 1, 2]]
             self._presion_mutex_activa = True
-            bitacora_global.registrar("WARN", "MUTEX_CALIENTE", "Mutex en estado CALIENTE por 3+ nodos CORRUPTOS.")
-        elif corruptos < 3 and self._presion_mutex_activa:
+            bitacora_global.registrar("WARN", "MUTEX_CALIENTE", "Mutex en estado CALIENTE por 1+ nodos CORRUPTOS.")
+        elif corruptos < 1 and self._presion_mutex_activa:
             self.mutex_calientes = []
             self._presion_mutex_activa = False
             bitacora_global.registrar("INFO", "MUTEX_FRIO", "Mutex volvio a estado normal.")
@@ -363,10 +363,38 @@ class ServidorJuego:
         try:
             if admin.rol != "ADMIN":
                 return False, "rol_no_permitido"
+
+            try:
+                mutex_id = int(mutex_id)
+            except (TypeError, ValueError):
+                return False, "mutex_id_invalido"
+
             if mutex_id not in [0, 1, 2]:
                 return False, "mutex_id_invalido"
+
+            # Normaliza cualquier valor previo para asegurar que siempre sean enteros.
+            self.mutex_calientes = [int(x) for x in self.mutex_calientes]
+
             if mutex_id in self.mutex_calientes:
                 self.mutex_calientes.remove(mutex_id)
+
+                # Habilidad definitiva: limpiar exactamente 1 nodo corrupto y su asignacion activa.
+                for id_nodo, nodo in self.nodos.items():
+                    if nodo.get("estado") == "CORRUPTO":
+                        nodo["estado"] = "LIBRE"
+                        nodo["hp"] = 100
+                        nodo["progreso"] = 0
+                        nodo["total"] = 0
+                        nodo["tipo_ataque"] = ""
+                        nodo["ocupado_por"] = None
+                        nodo["reparacion_progreso"] = 0
+                        nodo["reparacion_total"] = 0
+                        self.asignaciones.pop(id_nodo, None)
+                        bitacora_global.registrar("INFO", "MUTEX_PURGA", f"Admin {admin.nombre} purgo Nodo {id_nodo} con mutex {mutex_id}.")
+                        break
+
+                self._actualizar_estado_partida_locked()
+                self._actualizar_mutex_calientes_locked()
                 bitacora_global.registrar("INFO", "LIBERAR_MUTEX", f"Admin {admin.nombre} libero mutex {mutex_id}.")
                 return True, "exito"
             return False, "mutex_no_caliente"

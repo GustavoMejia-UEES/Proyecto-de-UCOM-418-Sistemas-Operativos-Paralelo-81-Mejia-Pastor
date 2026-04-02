@@ -144,3 +144,27 @@ func _draw():
 		elif interactor.pad_actual != null:
 			var pos = to_local(interactor.pad_actual.global_position)
 			draw_string(ThemeDB.fallback_font, pos + Vector2(-40, -40), "[E] RECARGAR", HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color.ORANGE)
+			
+		# ==========================================
+		# 🌟 LO NUEVO: VISUALES DEL MUTEX (ADMIN)
+		# ==========================================
+		elif interactor.mutex_actual != null and core.rol == "ADMIN":
+			var pos = to_local(interactor.mutex_actual.global_position)
+			
+			# Leemos si el Mutex está encendido (caliente)
+			var esta_caliente = interactor.mutex_actual.get("estaba_caliente")
+			
+			if esta_caliente:
+				draw_string(ThemeDB.fallback_font, pos + Vector2(-55, -65), "[F] ACTIVAR MUTEX", HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color.MAGENTA)
+				
+				# DIBUJAR LA BARRA DE CARGA AL MANTENER 'F'
+				if core.tiempo_f_held > 0.0:
+					var ratio_f = clamp(core.tiempo_f_held / core.F_HOLD_MAX, 0.0, 1.0)
+					
+					# Fondo oscuro de la barra
+					draw_rect(Rect2(pos.x - 40, pos.y - 55, 80, 10), Color(0.1, 0.1, 0.1, 0.9))
+					# Relleno de color magenta que va creciendo
+					draw_rect(Rect2(pos.x - 40, pos.y - 55, 80 * ratio_f, 10), Color.MAGENTA)
+			else:
+				# Si la base está a salvo, le decimos al admin que el Mutex no se necesita
+				draw_string(ThemeDB.fallback_font, pos + Vector2(-45, -65), "MUTEX APAGADO", HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color.GRAY)

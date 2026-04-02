@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bex5ifhoj1x1i" path="res://scenes/Player/Server.tscn" id="4_p47ta"]
 [ext_resource type="PackedScene" uid="uid://cfjsg1xt32fwx" path="res://scenes/HUD.tscn" id="5_ictkp"]
 [ext_resource type="PackedScene" uid="uid://convbelt0001" path="res://scenes/World/ConveyorBelt.tscn" id="6_hkgio"]
+[ext_resource type="PackedScene" uid="uid://do84fyyev6bep" path="res://scenes/World/Mutex.tscn" id="9_ictkp"]
+[ext_resource type="Texture2D" uid="uid://tm2n62bxk12w" path="res://assets/World/Spaceship.png" id="10_evp4r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqs1s"]
 size = Vector2(1024, 64)
@@ -40,6 +42,7 @@ offset_right = 1024.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.51, 0.3009, 0.091800004, 0.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2124803541]
 position = Vector2(512, 32)
@@ -87,7 +90,7 @@ position = Vector2(953, 1793)
 
 [node name="Servers_Admin" type="Node2D" parent="." unique_id=1085420080]
 y_sort_enabled = true
-position = Vector2(18, -2)
+position = Vector2(6, 146)
 
 [node name="Server1" parent="Servers_Admin" unique_id=1146154091 instance=ExtResource("4_p47ta")]
 position = Vector2(181, 295)
@@ -109,10 +112,198 @@ position = Vector2(794, 649)
 id_nodo = "5"
 
 [node name="HUD" parent="." unique_id=542895342 instance=ExtResource("5_ictkp")]
+visible = false
 
 [node name="ConveyorBelt" parent="." unique_id=225479493 instance=ExtResource("6_hkgio")]
 position = Vector2(512, 1960)
 
 [node name="AdminBelt" parent="." unique_id=108134035 instance=ExtResource("6_hkgio")]
-position = Vector2(512, 52)
+position = Vector2(511, 145)
 zona = "ADMIN"
+
+[node name="Mutex" parent="." unique_id=1863487426 instance=ExtResource("9_ictkp")]
+position = Vector2(496, 759)
+
+[node name="Muros" type="Node2D" parent="." unique_id=1164005636]
+
+[node name="Muro1" type="StaticBody2D" parent="Muros" unique_id=1781826713]
+position = Vector2(1024, 1024)
+rotation = -1.5707964
+
+[node name="ColorRectVisual" type="ColorRect" parent="Muros/Muro1" unique_id=841554935]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros/Muro1" unique_id=419069151]
+position = Vector2(512, 32)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro2" type="StaticBody2D" parent="Muros" unique_id=230953683]
+position = Vector2(1024, 2048)
+rotation = -1.5707964
+
+[node name="ColorRectVisual" type="ColorRect" parent="Muros/Muro2" unique_id=1698261955]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros/Muro2" unique_id=76624024]
+position = Vector2(512, 32)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro3" type="StaticBody2D" parent="Muros" unique_id=599368904]
+position = Vector2(0, 2048)
+
+[node name="ColorRectVisual" type="ColorRect" parent="Muros/Muro3" unique_id=874203670]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros/Muro3" unique_id=1607471852]
+position = Vector2(512, 32)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro4" type="StaticBody2D" parent="Muros" unique_id=913804093]
+position = Vector2(0, -64)
+
+[node name="ColorRectVisual" type="ColorRect" parent="Muros/Muro4" unique_id=1247552439]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros/Muro4" unique_id=400918064]
+position = Vector2(512, 32)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro5" type="StaticBody2D" parent="Muros" unique_id=573890482]
+rotation = 1.5707964
+
+[node name="ColorRectVisual" type="ColorRect" parent="Muros/Muro5" unique_id=23899148]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros/Muro5" unique_id=649694428]
+position = Vector2(512, 32)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro6" type="StaticBody2D" parent="Muros" unique_id=230903152]
+position = Vector2(0, 1024)
+rotation = 1.5707964
+
+[node name="ColorRectVisual" type="ColorRect" parent="Muros/Muro6" unique_id=1737278461]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros/Muro6" unique_id=629091995]
+position = Vector2(512, 32)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="ColorRect" type="Sprite2D" parent="." unique_id=521997635]
+z_index = -1
+position = Vector2(3319, 542)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_evp4r")
+
+[node name="Muros2" type="Node2D" parent="." unique_id=2070776783]
+position = Vector2(2836, -10)
+
+[node name="Muro1" type="StaticBody2D" parent="Muros2" unique_id=1357305075]
+position = Vector2(846, 1058)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros2/Muro1" unique_id=1099214085]
+position = Vector2(512, 23)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro2" type="StaticBody2D" parent="Muros2" unique_id=1326287437]
+position = Vector2(1024, 2048)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros2/Muro2" unique_id=1405280370]
+position = Vector2(1663.0001, -94.99995)
+rotation = -1.2494788
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro3" type="StaticBody2D" parent="Muros2" unique_id=1232598009]
+position = Vector2(0, 2048)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros2/Muro3" unique_id=1209448488]
+position = Vector2(542, -1260)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro4" type="StaticBody2D" parent="Muros2" unique_id=420289259]
+position = Vector2(0, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros2/Muro4" unique_id=1429839449]
+position = Vector2(497, 173)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro5" type="StaticBody2D" parent="Muros2" unique_id=225408357]
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros2/Muro5" unique_id=1954611553]
+position = Vector2(498, -141)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Muro6" type="StaticBody2D" parent="Muros2" unique_id=1848166305]
+position = Vector2(0, 1024)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros2/Muro6" unique_id=1129854260]
+position = Vector2(-607, -59.99997)
+rotation = 1.1219147
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1426208295]
+z_index = -1
+offset_left = 1801.0
+offset_top = -693.0
+offset_right = 1867.5676
+offset_bottom = -618.97974
+scale = Vector2(44.826637, 36.463)
+color = Color(0, 0, 0, 1)

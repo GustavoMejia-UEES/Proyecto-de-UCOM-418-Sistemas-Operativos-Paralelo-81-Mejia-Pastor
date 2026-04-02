@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mutex0001"]
 
-[ext_resource type="Script" path="res://scripts/MutexStation.gd" id="1_mx"]
+[ext_resource type="Script" uid="uid://b7ctdmu8rhxhq" path="res://scripts/Mutex.gd" id="1_mx"]
 
 [node name="MutexStation" type="Area2D"]
 script = ExtResource("1_mx")
