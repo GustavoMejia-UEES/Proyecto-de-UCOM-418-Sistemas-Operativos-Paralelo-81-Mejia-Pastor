@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dvt52eq8kbqr4"]
+
+[ext_resource type="Script" uid="uid://bwh2jlqscvwo4" path="res://scripts/Player/player_core.gd" id="1_v6fml"]
+[ext_resource type="Script" uid="uid://72gf0l1ftqrx" path="res://scripts/Player/player_visuals.gd" id="2_3li8b"]
+[ext_resource type="Texture2D" uid="uid://frr7i3ai3t6" path="res://assets/characters/char_01.png" id="2_v6fml"]
+[ext_resource type="Script" uid="uid://bn62v16bc3l3u" path="res://scripts/Player/player_interactor.gd" id="4_mdl7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3li8b"]
+size = Vector2(40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdl7e"]
+radius = 47.4
+
+[node name="Player" type="CharacterBody2D" unique_id=914216848]
+script = ExtResource("1_v6fml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=869024693]
+shape = SubResource("RectangleShape2D_3li8b")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=2091091481]
+script = ExtResource("2_3li8b")
+
+[node name="AvatarSprite" type="Sprite2D" parent="Visuals" unique_id=111111001]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_v6fml")
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="NameLabel" type="Label" parent="Visuals" unique_id=63725406]
+offset_left = -61.0
+offset_top = -74.0
+offset_right = 67.0
+offset_bottom = -54.0
+theme_override_font_sizes/font_size = 11
+text = "NOMBRE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WeaponLabel" type="Label" parent="Visuals" unique_id=836676077]
+offset_left = -46.0
+offset_top = -106.0
+offset_right = 58.0
+offset_bottom = -75.0
+theme_override_font_sizes/font_size = 10
+text = "WEAPON LABEL ACA
+DEBE IR UNA IMAGEN"
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=762566789]
+position = Vector2(-236, -259)
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 2048
+
+[node name="Interactor" type="Area2D" parent="." unique_id=325824693]
+script = ExtResource("4_mdl7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor" unique_id=238509999]
+shape = SubResource("CircleShape2D_mdl7e")

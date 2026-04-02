@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://do84fyyev6bep"]
+
+[ext_resource type="Texture2D" uid="uid://cpqfydnloftmg" path="res://assets/World/Metaton.png" id="1_5gpjn"]
+[ext_resource type="Script" uid="uid://b7ctdmu8rhxhq" path="res://scripts/Mutex.gd" id="1_cjyvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjyvx"]
+size = Vector2(194, 164)
+
+[node name="Mutex" type="Area2D" unique_id=1863487426]
+script = ExtResource("1_cjyvx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=135946907]
+position = Vector2(2, -6)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_5gpjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=201628895]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_cjyvx")

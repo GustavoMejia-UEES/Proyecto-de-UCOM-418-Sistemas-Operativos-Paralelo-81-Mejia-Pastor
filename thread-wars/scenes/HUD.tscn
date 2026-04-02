@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://cfjsg1xt32fwx"]
+
+[ext_resource type="Script" uid="uid://n4xgov8qe2hn" path="res://scripts/Hud.gd" id="1_qpvh6"]
+
+[node name="HUD" type="CanvasLayer" unique_id=542895342]
+layer = 100
+script = ExtResource("1_qpvh6")
+
+[node name="Topbar" type="Panel" parent="." unique_id=1700417625]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="LabelTimer" type="Label" parent="Topbar" unique_id=214594950]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 64.0
+offset_right = 570.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 36
+text = "\"5:00\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar_HP" type="ProgressBar" parent="Topbar" unique_id=277406466]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -13.5
+offset_right = 250.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel_Hacker" type="Control" parent="." unique_id=491181244]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label_Banda" type="Label" parent="Panel_Hacker" unique_id=1772902389]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 210.0
+offset_bottom = 25.0
+text = "\"Banda Consumida: 0/500\""
+
+[node name="ProgressBar_Banda" type="ProgressBar" parent="Panel_Hacker" unique_id=1476016970]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 28.0
+offset_right = 106.0
+offset_bottom = 55.0
+
+[node name="Panel_Admin" type="Control" parent="." unique_id=35781038]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label_Mutex" type="Label" parent="Panel_Admin" unique_id=742922016]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 52.0
+offset_right = 890.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(1, 0.53999996, 0.39999998, 1)
+text = "\"⚠ MUTEX CALIENTES\" "
+
+[node name="Consola_Logs" type="RichTextLabel" parent="Panel_Admin" unique_id=993270826]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 600.0
+offset_bottom = 110.0
+text = "a"
+
+[node name="OverlayGameOver" type="ColorRect" parent="." unique_id=1905459789]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3137255)
+
+[node name="Label_Titulo" type="Label" parent="OverlayGameOver" unique_id=1287512511]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 120.0
+offset_right = 615.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 70
+text = "HACKER GANAN"
+
+[node name="Label_Subtitulo" type="Label" parent="OverlayGameOver" unique_id=426224656]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 247.0
+offset_right = 120.0
+offset_bottom = 302.0
+theme_override_font_sizes/font_size = 40
+text = "a"
+
+[node name="BtnVolverLobby" type="Button" parent="OverlayGameOver" unique_id=1602321133]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 775.0
+offset_right = 506.0
+offset_bottom = 838.0
+theme_override_font_sizes/font_size = 40
+text = "\"Regresar al Menu\""

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://fileitem001"]
+
+[ext_resource type="Script" uid="uid://cwfv183mt4pty" path="res://scripts/FileItem.gd" id="1_fi"]
+[ext_resource type="Texture2D" uid="uid://sxgv73p1jeo0" path="res://assets/icons/TEXTO.png" id="2_2ww34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4n1w"]
+size = Vector2(30, 30)
+
+[node name="FileItem" type="Area2D" unique_id=1455851845]
+script = ExtResource("1_fi")
+
+[node name="Icono" type="Sprite2D" parent="." unique_id=1171335255]
+texture = ExtResource("2_2ww34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=13765531]
+shape = SubResource("RectangleShape2D_d4n1w")

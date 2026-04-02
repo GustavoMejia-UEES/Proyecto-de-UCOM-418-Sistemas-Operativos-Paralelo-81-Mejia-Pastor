@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://chpad00001"]
+
+[ext_resource type="Script" uid="uid://dk2rf8i13a8h7" path="res://scripts/ChargingPad.gd" id="1_pad"]
+[ext_resource type="Texture2D" uid="uid://c5j34hhimcq71" path="res://assets/World/ChargingPad.png" id="2_ixmxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b77ny"]
+size = Vector2(128, 128)
+
+[node name="ChargingPad" type="Area2D" unique_id=1952391736]
+collision_layer = 3
+script = ExtResource("1_pad")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=988753235]
+texture = ExtResource("2_ixmxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=396495223]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_b77ny")

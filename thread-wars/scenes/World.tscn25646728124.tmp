@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://ch6mkm33kgddt"]
+
+[ext_resource type="Script" uid="uid://duq2j4pw36nt1" path="res://scripts/World.gd" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://cwegqvimtlxxu" path="res://scenes/PC.tscn" id="3_1lgw5"]
+[ext_resource type="PackedScene" uid="uid://chpad00001" path="res://scenes/ChargingPad.tscn" id="3_d1c63"]
+[ext_resource type="PackedScene" uid="uid://bex5ifhoj1x1i" path="res://scenes/Server.tscn" id="4_hlk0d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqs1s"]
+size = Vector2(1024, 64)
+
+[node name="World" type="Node2D" unique_id=693201228]
+script = ExtResource("1_nnsk1")
+
+[node name="FondoAdmin" type="ColorRect" parent="." unique_id=1642525428]
+offset_right = 1024.0
+offset_bottom = 512.0
+color = Color(0.2086803, 1.5191269e-07, 2.4065375e-08, 1)
+
+[node name="FondoHacker" type="ColorRect" parent="." unique_id=104371179]
+offset_top = 512.0
+offset_right = 1024.0
+offset_bottom = 1024.0
+color = Color(0.0025168592, 0, 0.13994196, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=504787831]
+position = Vector2(0, 480)
+
+[node name="ColorRectVisual" type="ColorRect" parent="StaticBody2D" unique_id=512461294]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2124803541]
+position = Vector2(512, 32)
+shape = SubResource("RectangleShape2D_kqs1s")
+debug_color = Color(0.38371798, 0.5338508, 0.80415547, 0.41960785)
+
+[node name="Pads_Hacker" type="Node2D" parent="." unique_id=1172661443]
+
+[node name="ChargingPad1" parent="Pads_Hacker" unique_id=1160994888 instance=ExtResource("3_d1c63")]
+position = Vector2(42, 650)
+
+[node name="ChargingPad2" parent="Pads_Hacker" unique_id=1743632585 instance=ExtResource("3_d1c63")]
+position = Vector2(980, 653)
+
+[node name="ChargingPad3" parent="Pads_Hacker" unique_id=1543170196 instance=ExtResource("3_d1c63")]
+position = Vector2(45, 871)
+
+[node name="ChargingPad4" parent="Pads_Hacker" unique_id=245901915 instance=ExtResource("3_d1c63")]
+position = Vector2(982, 877)
+
+[node name="PCs_Hackers" type="Node2D" parent="." unique_id=1834032129]
+
+[node name="Pc1" parent="PCs_Hackers" unique_id=448044649 instance=ExtResource("3_1lgw5")]
+position = Vector2(187, 721)
+
+[node name="Pc2" parent="PCs_Hackers" unique_id=1916479949 instance=ExtResource("3_1lgw5")]
+position = Vector2(309, 722)
+id_nodo = "2"
+
+[node name="Pc3" parent="PCs_Hackers" unique_id=1292293788 instance=ExtResource("3_1lgw5")]
+position = Vector2(420, 727)
+id_nodo = "3"
+
+[node name="Pc4" parent="PCs_Hackers" unique_id=1278114382 instance=ExtResource("3_1lgw5")]
+position = Vector2(527, 724)
+id_nodo = "4"
+
+[node name="Pc5" parent="PCs_Hackers" unique_id=584383357 instance=ExtResource("3_1lgw5")]
+position = Vector2(640, 728)
+id_nodo = "5"
+
+[node name="Servers_Admin" type="Node2D" parent="." unique_id=1085420080]
+
+[node name="Server1" parent="Servers_Admin" unique_id=1146154091 instance=ExtResource("4_hlk0d")]
+position = Vector2(181, 295)
+
+[node name="Server2" parent="Servers_Admin" unique_id=665158679 instance=ExtResource("4_hlk0d")]
+position = Vector2(267, 294)
+id_nodo = "2"
+
+[node name="Server3" parent="Servers_Admin" unique_id=1320128961 instance=ExtResource("4_hlk0d")]
+position = Vector2(355, 295)
+id_nodo = "3"
+
+[node name="Server4" parent="Servers_Admin" unique_id=154910489 instance=ExtResource("4_hlk0d")]
+position = Vector2(447, 298)
+id_nodo = "4"
+
+[node name="Server5" parent="Servers_Admin" unique_id=1919593636 instance=ExtResource("4_hlk0d")]
+position = Vector2(535, 298)
+id_nodo = "5"
