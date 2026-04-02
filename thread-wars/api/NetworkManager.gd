@@ -1,7 +1,7 @@
 extends Node
 
 var socket = WebSocketPeer.new()
-var url = "ws://localhost:8765"
+var url = ""
 var estado_mundo = {}
 var conectado = false
 
@@ -15,8 +15,20 @@ var ultimo_error: String = ""
 var ultima_respuesta_accion: Dictionary = {}
 
 func _ready():
+	url = _resolver_url_websocket()
 	print("Conectando al servidor Python...")
+	print("URL WebSocket: ", url)
 	socket.connect_to_url(url)
+
+func _resolver_url_websocket() -> String:
+	# En web, permite inyectar window.BACKEND_WS_URL o usar ?ws=... en la URL.
+	if OS.has_feature("web"):
+		var custom_ws = str(JavaScriptBridge.eval("window.BACKEND_WS_URL || new URLSearchParams(window.location.search).get('ws') || ''"))
+		if custom_ws.strip_edges() != "":
+			return custom_ws.strip_edges()
+
+	# En local/editor usamos el backend levantado manualmente.
+	return "ws://localhost:8000"
 
 func _process(_delta):
 	socket.poll()

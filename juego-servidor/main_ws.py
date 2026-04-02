@@ -1,5 +1,6 @@
 import asyncio
 import json
+import os
 import random
 import string
 import threading
@@ -23,6 +24,7 @@ ws_a_id = {}
 conexiones_activas = set()
 
 mutex_red = threading.Lock()
+PORT = int(os.environ.get("PORT", 8000))
 
 
 def _generar_codigo_sala():
@@ -392,14 +394,14 @@ async def manejador_cliente(websocket):
 async def main():
     print("=" * 60)
     print("INICIANDO SERVIDOR DE JUEGO (MULTI-SALA)")
-    print("Escuchando en ws://localhost:8765")
+    print(f"Escuchando en 0.0.0.0:{PORT}")
     print("=" * 60)
 
     asyncio.create_task(enviar_estado_mundo())
     asyncio.create_task(ciclo_cinta_hacker())
     asyncio.create_task(ciclo_drenaje_pasivo())
 
-    async with websockets.serve(manejador_cliente, "0.0.0.0", 8765):
+    async with websockets.serve(manejador_cliente, "0.0.0.0", PORT):
         await asyncio.Future()
 
 
