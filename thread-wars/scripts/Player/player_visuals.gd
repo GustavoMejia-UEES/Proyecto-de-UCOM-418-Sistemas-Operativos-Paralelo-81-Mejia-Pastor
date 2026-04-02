@@ -51,8 +51,10 @@ func actualizar_apariencia():
 			var nombre_png = item_actual.replace("PARCHE_", "")
 			var ruta_icono = "res://assets/icons/" + nombre_png + ".png"
 			
-			if ResourceLoader.exists(ruta_icono):
-				icon_arma.texture = load(ruta_icono)
+			# CARGA DIRECTA A PRUEBA DE WEB
+			var tex_icono = load(ruta_icono)
+			if tex_icono != null:
+				icon_arma.texture = tex_icono
 				icon_arma.modulate = Color(0.3, 0.8, 1.0) if "PARCHE" in item_actual else Color.WHITE
 				icon_arma.show()
 			else:
@@ -60,10 +62,13 @@ func actualizar_apariencia():
 		else:
 			icon_arma.hide()
 
+	# CARGA DE AVATAR A PRUEBA DE WEB
 	if sprite_avatar and core.avatar != "" and core.avatar != _avatar_cargado:
 		var ruta: String = "res://assets/characters/" + core.avatar + ".png"
-		if ResourceLoader.exists(ruta):
-			sprite_avatar.texture = load(ruta)
+		var tex_avatar = load(ruta)
+		
+		if tex_avatar != null:
+			sprite_avatar.texture = tex_avatar
 			_avatar_cargado = core.avatar
 
 	if sprite_avatar:

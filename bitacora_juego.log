@@ -1,49 +1,5 @@
-[01:24:19] [INFO] [SALA] AAAAAAAAAA creo la sala U56B.
-[01:24:27] [INFO] [SALA] EEEEEEEEEEEEE se unio a la sala U56B.
-[01:24:29] [INFO] [ROLES] Sala U56B: 1 ADMIN(s), 1 HACKER(s).
-[01:24:29] [INFO] [INICIO] Partida iniciada por el anfitrion.
-[01:24:35] [INFO] [ATAQUE] AAAAAAAAAA inicio ataque Nodo 1 (1/5).
-[01:24:35] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 1.
-[01:24:39] [INFO] [ATAQUE] AAAAAAAAAA inicio ataque Nodo 5 (1/15).
-[01:24:39] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 5.
-[01:24:42] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 5: 2/15.
-[01:24:42] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 5.
-[01:24:44] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 5: 3/15.
-[01:24:45] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 5.
-[01:24:48] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 5: 4/15.
-[01:24:48] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 5.
-[01:24:52] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 1: 2/5.
-[01:24:52] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 1.
-[01:24:57] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 1: 3/5.
-[01:24:57] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 1.
-[01:25:04] [INFO] [ATAQUE] AAAAAAAAAA inicio ataque Nodo 3 (1/10).
-[01:25:04] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 3.
-[01:25:07] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 3: 2/10.
-[01:25:07] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 3.
-[01:25:10] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 3: 3/10.
-[01:25:10] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 3.
-[01:25:12] [INFO] [RECARGA] AAAAAAAAAA recargó energía: 0 -> 10.
-[01:25:12] [INFO] [RECARGA] AAAAAAAAAA recargó energía: 10 -> 20.
-[01:25:13] [INFO] [RECARGA] AAAAAAAAAA recargó energía: 20 -> 30.
-[01:25:14] [INFO] [RECARGA] AAAAAAAAAA recargó energía: 30 -> 40.
-[01:25:15] [INFO] [RECARGA] AAAAAAAAAA recargó energía: 40 -> 50.
-[01:25:15] [INFO] [RECARGA] AAAAAAAAAA recargó energía: 50 -> 60.
-[01:25:16] [INFO] [RECARGA] AAAAAAAAAA recargó energía: 60 -> 70.
-[01:25:16] [INFO] [RECARGA] AAAAAAAAAA recargó energía: 70 -> 80.
-[01:25:20] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 5: 5/15.
-[01:25:20] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 5.
-[01:25:23] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 5: 6/15.
-[01:25:23] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 5.
-[01:25:26] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 3: 4/10.
-[01:25:26] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 3.
-[01:25:30] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 5: 7/15.
-[01:25:30] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 5.
-[01:25:33] [INFO] [PROGRESO] AAAAAAAAAA avanzo Nodo 1: 4/5.
-[01:25:33] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 1.
-[01:25:37] [INFO] [CORRUPCION] AAAAAAAAAA corrompio el Nodo 1.
-[01:25:38] [INFO] [CANCELAR] AAAAAAAAAA libero Nodo 1.
-[01:26:00] [INFO] [LIMPIEZA] Admin EEEEEEEEEEEEE curo por completo el Nodo 3.
-[01:26:38] [INFO] [LIMPIEZA] Admin EEEEEEEEEEEEE curo por completo el Nodo 5.
-[01:26:56] [INFO] [DESCONEXION] AAAAAAAAAA salio de la sala U56B.
-[01:26:57] [INFO] [DESCONEXION] EEEEEEEEEEEEE salio de la sala U56B.
-[01:26:57] [INFO] [SALA] Sala U56B cerrada por falta de jugadores.
+[10:09:23] [INFO] [SALA] aaaaaaaaaa creo la sala RIPC.
+[10:09:36] [INFO] [SALA] eeeeeeeee se unio a la sala RIPC.
+[10:14:12] [INFO] [DESCONEXION] eeeeeeeee salio de la sala RIPC.
+[10:14:14] [INFO] [DESCONEXION] aaaaaaaaaa salio de la sala RIPC.
+[10:14:14] [INFO] [SALA] Sala RIPC cerrada por falta de jugadores.
