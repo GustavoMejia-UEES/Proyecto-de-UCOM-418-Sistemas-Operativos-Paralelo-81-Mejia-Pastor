@@ -12,23 +12,54 @@ var _tiempo_anim: float = 0.0
 var _ultima_direccion: int = 0
 const ANIM_FPS: float = 6.0
 
+# ==========================================
+# 🛡️ DICCIONARIOS DE PRE-CARGA WEB
+# Obligan a Godot a empaquetar estas imágenes sí o sí
+# ==========================================
+var dic_personajes = {
+	"char_01": preload("res://assets/characters/char_01.png"),
+	"char_02": preload("res://assets/characters/char_02.png"),
+	"char_03": preload("res://assets/characters/char_03.png"),
+	"char_04": preload("res://assets/characters/char_04.png"),
+	"char_05": preload("res://assets/characters/char_05.png"),
+	"char_06": preload("res://assets/characters/char_06.png"),
+	"char_07": preload("res://assets/characters/char_07.png"),
+	"char_08": preload("res://assets/characters/char_08.png"),
+	"char_09": preload("res://assets/characters/char_09.png"),
+	"char_10": preload("res://assets/characters/char_10.png"),
+	"char_11": preload("res://assets/characters/char_11.png"),
+	"char_12": preload("res://assets/characters/char_12.png"),
+	"char_13": preload("res://assets/characters/char_13.png"),
+	"char_14": preload("res://assets/characters/char_14.png"),
+	"char_15": preload("res://assets/characters/char_15.png"),
+	"char_16": preload("res://assets/characters/char_16.png"),
+	"char_17": preload("res://assets/characters/char_17.png"),
+	"char_18": preload("res://assets/characters/char_18.png"),
+	"char_19": preload("res://assets/characters/char_19.png"),
+	"char_20": preload("res://assets/characters/char_20.png")
+}
+
+var dic_iconos = {
+	"TEXTO": preload("res://assets/icons/TEXTO.png"),
+	"AUDIO": preload("res://assets/icons/AUDIO.png"),
+	"VIDEO": preload("res://assets/icons/VIDEO.png")
+}
+
 func _ready():
 	if sprite_avatar:
 		sprite_avatar.hframes = 3
 		sprite_avatar.vframes = 4
 		sprite_avatar.texture_filter = TEXTURE_FILTER_NEAREST
 
-	# MAGIA: Destruir el texto feo si el usuario olvidó borrarlo en el editor
 	if has_node("WeaponLabel"):
 		get_node("WeaponLabel").queue_free()
 
-	# MAGIA 2: Crear el Sprite2D de la cabeza automáticamente si no existe
 	if has_node("WeaponIcon") and get_node("WeaponIcon") is Sprite2D:
 		icon_arma = get_node("WeaponIcon")
 	else:
 		icon_arma = Sprite2D.new()
 		icon_arma.name = "WeaponIcon"
-		icon_arma.position = Vector2(0, -60) # Flotando sobre la cabeza
+		icon_arma.position = Vector2(0, -60) 
 		add_child(icon_arma)
 
 func _process(delta):
@@ -41,7 +72,7 @@ func actualizar_apariencia():
 		if core.rol == "ESPECTADOR": etiqueta_info.text = core.nombre_jugador + " (DIOS)"
 		else: etiqueta_info.text = core.nombre_jugador
 
-	# ACTUALIZAR EL ICONO DEL ARMA
+	# ACTUALIZAR EL ICONO DEL ARMA (USANDO PRELOAD)
 	if icon_arma:
 		var item_actual = ""
 		if core.rol == "CLIENTE": item_actual = core.archivo_equipado
@@ -49,12 +80,9 @@ func actualizar_apariencia():
 			
 		if item_actual != "":
 			var nombre_png = item_actual.replace("PARCHE_", "")
-			var ruta_icono = "res://assets/icons/" + nombre_png + ".png"
 			
-			# CARGA DIRECTA A PRUEBA DE WEB
-			var tex_icono = load(ruta_icono)
-			if tex_icono != null:
-				icon_arma.texture = tex_icono
+			if dic_iconos.has(nombre_png):
+				icon_arma.texture = dic_iconos[nombre_png]
 				icon_arma.modulate = Color(0.3, 0.8, 1.0) if "PARCHE" in item_actual else Color.WHITE
 				icon_arma.show()
 			else:
@@ -62,13 +90,10 @@ func actualizar_apariencia():
 		else:
 			icon_arma.hide()
 
-	# CARGA DE AVATAR A PRUEBA DE WEB
+	# CARGA DE AVATAR (USANDO PRELOAD)
 	if sprite_avatar and core.avatar != "" and core.avatar != _avatar_cargado:
-		var ruta: String = "res://assets/characters/" + core.avatar + ".png"
-		var tex_avatar = load(ruta)
-		
-		if tex_avatar != null:
-			sprite_avatar.texture = tex_avatar
+		if dic_personajes.has(core.avatar):
+			sprite_avatar.texture = dic_personajes[core.avatar]
 			_avatar_cargado = core.avatar
 
 	if sprite_avatar:
@@ -108,7 +133,6 @@ func _draw():
 		draw_rect(Rect2(-60, -40 + (80.0 - altura_llena), 8, altura_llena), Color.YELLOW)
 
 	if interactor:
-		# TEXTOS FLOTANTES
 		if interactor.item_actual != null:
 			var pos = to_local(interactor.item_actual.global_position)
 			draw_string(ThemeDB.fallback_font, pos + Vector2(-35, -30), "[E] RECOGER", HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color.GREEN)
